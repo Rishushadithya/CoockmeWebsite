@@ -11,7 +11,7 @@
     
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="./CSS/home.css">
+    <link rel="stylesheet" href="./CSS/header.css">
     
      <title>header</title>
 </head>
@@ -34,10 +34,10 @@
 
     <nav class="nav-bar">
         
-        <input type="button" value="Home" >
+        <!-- <input type="button" value="Home" >
         <input type="button" value="Category" >
         <input type="button" value="Contact" >
-        <input type="button" value="About" >
+        <input type="button" value="About" > -->
 
         <a href=""  >Home</a>
         <a href="">Category</a>
