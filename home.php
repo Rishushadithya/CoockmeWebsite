@@ -30,6 +30,13 @@ require_once('header.php');
             <input type="text" class="search-bar" placeholder="Search recipes...">
         </section>
 
+        <div class="container">
+            <img id="cover" src="./image/cover.jpg" alt="cover" width="1170px" height="200px">
+            <div>
+                <button class="cbutton">Category</button>
+            </div>
+        </div>
+
         <section class="section">
             <h2>Recipes in this Category</h2>
             <div class="grid">

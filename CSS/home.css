@@ -7,10 +7,13 @@
             color: #333;
             background-color: #f4f4f4;
         }
+
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
+            text-align: center;
         }
         h1, h2 {
             text-align: center;
