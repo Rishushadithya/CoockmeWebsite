@@ -3,37 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="./CSS/home.css">
-    
-    
     <title>Home page</title>
 </head>
-
 <body>
+    <?php require_once('header.php'); ?>
 
-<?php
-require_once('header.php');
-?>
     <main class="container">
         <div class="category-grid">
-                <?php for ($i = 0; $i < 12; $i++): ?>
-                    <div class="category-item">
-                        <a href="#">Category <?php echo $i + 1; ?></a>
-                    </div>
-                <?php endfor; ?>
+            <?php for ($i = 0; $i < 12; $i++): ?>
+                <div class="category-item">
+                    <a href="#">Category <?php echo $i + 1; ?></a>
+                </div>
+            <?php endfor; ?>
         </div>
 
-        <section class="section">
-            <h1>Category Name</h1>
-            <input type="text" class="search-bar" placeholder="Search recipes...">
-        </section>
-
-        <div class="container">
-            <img id="cover" src="./image/cover.jpg" alt="cover" width="1170px" height="200px">
-            <div>
-                <button class="cbutton">Category</button>
+        <div>
+            <div style="position: relative; text-align: center;">
+                <img id="cover" src="./image/cover.jpg" alt="cover" width="1170px" height="300px">
+                <div class="cbutton">
+                    <button class="cbutton">Welcome to CookMe</button>
+                </div>
             </div>
         </div>
 
@@ -108,13 +99,9 @@ require_once('header.php');
                 <a href="#" class="slider-nav prev">&#10094;</a>
                 <a href="#" class="slider-nav next">&#10095;</a>
             </div>
-        </section>  
+        </section>
     </main>
 
- <?php
-require_once('footer.php');
-?>
-
+    <?php require_once('footer.php'); ?>
 </body>
-
 </html>
