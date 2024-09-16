@@ -21,6 +21,7 @@
     margin: 0 20px;
     padding-left: 20px;
     padding: 10px;
+    border: none; /* Removed outer box (border) */
 }
 
 #search {
