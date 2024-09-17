@@ -16,7 +16,7 @@
 <body>
     <div class="header">
         <a href="home.php" class="logo">
-            <img src="./image/logo.jpg" alt="logo">
+            <img src="./icon/logo2.gif" alt="logo">
         </a>
         
         <div class="search-bar">

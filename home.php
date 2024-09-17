@@ -21,9 +21,25 @@
 
         <div>
             <div style="position: relative; text-align: center;">
-                <img id="cover" src="./image/cover.jpg" alt="cover" width="1170px" height="300px">
-                <div class="cbutton">
-                    <button class="cbutton">Welcome to CookMe</button>
+                <img id="cover" src="./image/cover2.jpg" alt="cover" width="100%">
+                
+                <div class="welcome-message">
+                    <h1>Welcome to Cook Me</h1>
+                <style>
+                    .welcome-message {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        color: white;
+                        font-size: 50px;
+                        animation: fadeIn 2s ease-in-out;
+                    }
+                    @keyframes fadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+                </style>
                 </div>
             </div>
         </div>

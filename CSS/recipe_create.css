@@ -3,14 +3,15 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    border: none;
 }
 
 .container {
-    width: 50%;
-    margin: auto;
+    width: 60%;
+    margin: 50px auto;
     background: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
@@ -20,21 +21,76 @@ h1 {
 label {
     display: block;
     margin-top: 10px;
+    
 }
 
 input, textarea, select, button {
-    width: 100%;
+    width: 95%;
     padding: 10px;
-    margin-top: 5px;
+    margin-top: 5px 5px 5px 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  
 }
 
-button {
-    background-color: #5cb85c;
+button[type="button"] {
+    width: auto;
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#ingredients{
+    height: 150px;
+}
+#description{
+    height: 75px;
+}
+#method{
+    height: 200px;
+}
+
+button[type="button"] {
+    width: auto;
+    background-color: #04AA6D;
     color: white;
     border: none;
     cursor: pointer;
 }
 
+#servings ,#cuisine, #cookingTime, #difficulty{
+    width: 75px;
+    display: inline-block;
+}
+
+
+button {
+    background-color: #5c8fb8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 70%;
+    margin: 0 center;
+}
+
 button:hover {
-    background-color: #4cae4c;
+    background-color: #4c53ae;
+}
+
+
+.stars {
+    
+    justify-content: center;
+    
+}
+
+.star {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star:hover, .star.selected {
+    color: #f39c12;
 }
