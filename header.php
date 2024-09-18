@@ -16,7 +16,7 @@
 <body>
     <div class="header">
         <a href="home.php" class="logo">
-            <img src="./image/logo.jpg" alt="logo">
+            <img src="./icon/logo2.gif" alt="logo">
         </a>
         
         <div class="search-bar">
@@ -24,16 +24,20 @@
             <input id="sbutton" type="button" value="Search">
         </div>
 
-        <div class="profile-icon">
-            <img src="./icon/user.png" alt="usericon" width="50px">
-        </div>
+        <div class="user-menu">
+                <img src="./images/profile.png" alt="User Icon" class="user-icon" onclick="toggleDropdown()">
+                <div class="dropdown">
+                    <a href="profile.php">Account</a>
+                    <a href="logout.php">Logout</a>
+                </div>	
+            </div>
     </div>
 
     <nav class="nav-bar">
         <a href="./home.php" class="nav-link">Home</a>
-        <a href="" class="nav-link">Category</a>
-        <a href="" class="nav-link">Contact</a>
-        <a href="./AboutUS.php" class="nav-link">About</a>
+        <a href="./category.php" class="nav-link">Category</a>
+        <a href="" class="nav-link">Contact Us</a>
+        <a href="./AboutUS.php" class="nav-link">About Us</a>
     </nav>
 </body>
 </html>

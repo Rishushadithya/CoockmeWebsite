@@ -1,9 +1,8 @@
-/* header css */
-
-.body {
+ body {
     margin: 0;
     font-family: Arial, sans-serif;
-}
+
+} 
 
 .header {
     display: flex;
@@ -14,6 +13,7 @@
 .logo img {
     width: 150px;
     height: 150px;
+    border-radius: 50%;
 }
 
 .search-bar input {
@@ -21,7 +21,7 @@
     margin: 0 20px;
     padding-left: 20px;
     padding: 10px;
-    border: none; /* Removed outer box (border) */
+    border: none;  
 }
 
 #search {
