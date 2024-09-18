@@ -1,5 +1,5 @@
 <?php
-// session_start();
+require('config.php');
 ?>
 
 <!DOCTYPE html>
@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="./CSS/header.css">
     
     <title>header</title>
+
 </head>
 <body>
+
     <div class="header">
         <a href="home.php" class="logo">
             <img src="./icon/logo2.gif" alt="logo">
