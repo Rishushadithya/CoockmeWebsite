@@ -13,7 +13,7 @@
         require_once ('header.php'); // Include header of the page
     ?>
     <div class="container">
-        <section class="section">
+        <section class="section" id="c1">
             <h2>Category 1</h2>
             <div class="grid">
                 <?php for ($i = 0; $i < 4; $i++): ?>
@@ -29,7 +29,7 @@
         </section>
 
 
-        <section class="section">
+        <section class="section" id="c2">
             <h2>Category 2</h2>
             <div class="grid">
                 <?php for ($i = 0; $i < 4; $i++): ?>
@@ -45,7 +45,7 @@
         </section>
 
 
-        <section class="section">
+        <section class="section" id="c3">
             <h2>Category 3</h2>
             <div class="grid">
                 <?php for ($i = 0; $i < 4; $i++): ?>
@@ -61,7 +61,20 @@
         </section>
 
 
-
+        <section class="section" id="c4">
+            <h2>Category 4</h2>
+            <div class="grid">
+                <?php for ($i = 0; $i < 4; $i++): ?>
+                    <article class="card">
+                        <a href="recipe.php">
+                            <img src="./image/recipe/6-1.jpg" alt="Collection Image">
+                        </a>
+                        <h3>Collection Title</h3>
+                        <p>Read more..</p>
+                    </article>
+                <?php endfor; ?>
+            </div>
+        </section>
 
 
 

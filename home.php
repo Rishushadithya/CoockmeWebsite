@@ -42,15 +42,39 @@
         <section class="section">
             <h2>Recipes in this Category</h2>
             <div class="grid">
-                <?php for ($i = 0; $i < 8; $i++): ?>
+        
+            <a href="./category.php#c1">
                     <article class="card">
-                        <a href="recipe.php">
                             <img src="./image/recipe/2-1.jpg" alt="Recipe Image">
-                        </a>
-                        <h3>Recipe Title</h3>
+                        <h3>Recipe Title 1 </h3>
                         <p>Brief description of the recipe...</p>
                     </article>
-                <?php endfor; ?>
+                    </a>
+                    
+                    <a href="./category.php#c2">
+                    <article class="card">
+                            <img src="./image/recipe/2-1.jpg" alt="Recipe Image">
+                        <h3>Recipe Title 2 </h3>
+                        <p>Brief description of the recipe...</p>
+                    </article>
+                    </a>
+                    
+                    <a href="./category.php#c3">
+                    <article class="card">
+                            <img src="./image/recipe/2-1.jpg" alt="Recipe Image">
+                        <h3>Recipe Title 3 </h3>
+                        <p>Brief description of the recipe...</p>
+                    </article>
+                    </a>
+
+                    <a href="./category.php#c4">
+                    <article class="card">
+                            <img src="./image/recipe/2-1.jpg" alt="Recipe Image">
+                        <h3>Recipe Title 4 </h3>
+                        <p>Brief description of the recipe...</p>
+                    </article>
+                    </a>
+                
             </div>
             <a href="./category.php" class="btn">See More</a>
         </section>

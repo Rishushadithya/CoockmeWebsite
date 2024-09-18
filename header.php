@@ -24,9 +24,13 @@
             <input id="sbutton" type="button" value="Search">
         </div>
 
-        <div class="profile-icon">
-            <img src="./icon/user.png" alt="usericon" width="50px">
-        </div>
+        <div class="user-menu">
+                <img src="./images/profile.png" alt="User Icon" class="user-icon" onclick="toggleDropdown()">
+                <div class="dropdown">
+                    <a href="profile.php">Account</a>
+                    <a href="logout.php">Logout</a>
+                </div>	
+            </div>
     </div>
 
     <nav class="nav-bar">
