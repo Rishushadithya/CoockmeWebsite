@@ -42,10 +42,10 @@
                     <h3>Quick Links</h3>
                     <br>
                     <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="about.php">About</a></li>
-                        <li><a href="contact.php">Contact</a></li>
-                        <li><a href="categories.php">Category</a></li>
+                        <li><a href="./home.php">Home</a></li>
+                        <li><a href="./AboutUS.php">About Us</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
+                        <li><a href="./category.php">Category</a></li>
                     </ul>
                 </div>
                 <div class="footer-section social">

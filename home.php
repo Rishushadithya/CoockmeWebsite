@@ -11,22 +11,14 @@
      <?php require_once('header.php'); ?> 
 
     <main class="container">
-        <div class="category-grid">
-            <?php for ($i = 0; $i < 12; $i++): ?>
-                <div class="category-item">
-                    <a href="#">Category <?php echo $i + 1; ?></a>
-                </div>
-            <?php endfor; ?>
-        </div>
-
         <div>
             <div style="position: relative; text-align: center;">
-                <img id="cover" src="./image/cover2.jpg" alt="cover" width="100%">
+                <img id="coverimage" src="./image/cover2.jpg" alt="cover" width="100%">
                 
                 <div class="welcome-message">
-                    <h1>Welcome to Cook Me</h1>
+                    <h1 id="welcome">Welcome to Cook Me</h1>
                 <style>
-                    .welcome-message {
+                    .welcome-message {    
                         position: absolute;
                         top: 50%;
                         left: 50%;
@@ -34,6 +26,9 @@
                         color: white;
                         font-size: 50px;
                         animation: fadeIn 2s ease-in-out;
+                    }
+                    #welcome{
+                        color: white;
                     }
                     @keyframes fadeIn {
                         from { opacity: 0; }
@@ -57,7 +52,7 @@
                     </article>
                 <?php endfor; ?>
             </div>
-            <a href="#" class="btn">See More</a>
+            <a href="./category.php" class="btn">See More</a>
         </section>
 
         <section class="section why-register">

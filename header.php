@@ -31,9 +31,9 @@
 
     <nav class="nav-bar">
         <a href="./home.php" class="nav-link">Home</a>
-        <a href="" class="nav-link">Category</a>
-        <a href="" class="nav-link">Contact</a>
-        <a href="./AboutUS.php" class="nav-link">About</a>
+        <a href="./category.php" class="nav-link">Category</a>
+        <a href="" class="nav-link">Contact Us</a>
+        <a href="./AboutUS.php" class="nav-link">About Us</a>
     </nav>
 </body>
 </html>
