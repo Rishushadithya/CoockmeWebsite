@@ -14,72 +14,120 @@
     ?>
     <div class="container">
         <section class="section" id="c1">
-            <h2>Category 1</h2>
-            <div class="grid">
-                <?php for ($i = 0; $i < 4; $i++): ?>
-                    <article class="card">
-                        <a href="recipe.php">
-                            <img src="./image/recipe/7-1.jpg" alt="Collection Image">
-                        </a>
-                        <h3>Collection Title</h3>
-                        <p>Read more..</p>
-                    </article>
-                <?php endfor; ?>
+            <h2>Italian Recipes</h2>
+            <div class="grid">     
+                <?php  
+                    $sql = "SELECT SUM(RecipeID) AS 'total1',Cuisin FROM recipe WHERE Cuisin = 'Italian'";
+                        $result = $con->query($sql);
+                        while($row = $result->fetch_assoc()) {
+                            $total12 = $row['total1'];
+                        }
+
+                        while($total12>0){
+
+                            $sql = "SELECT * FROM recipe WHERE RecipeID = $total12";
+                            $result = $con->query($sql);
+                                while($row = $result->fetch_assoc()) {
+                                    echo '<article class="card">';
+                                    echo '<a href="recipe.php">';
+                                    echo "<img src='data:image/jpeg;base64,".base64_encode($row['RImage'])."' alt='Recipe Image'>";
+                                    echo "<h3>" . $row["Title"] . "</h3>";
+                                    echo "<p>" . $row["Description"] . "</p>";
+                                    echo '</article>';
+                                        } 
+                            $total12--;
+                        }    
+                ?>
+                   
             </div>
-        </section>
+        </section> 
 
 
         <section class="section" id="c2">
-            <h2>Category 2</h2>
+            <h2>French Recipes</h2>
             <div class="grid">
-                <?php for ($i = 0; $i < 4; $i++): ?>
-                    <article class="card">
-                        <a href="recipe.php">
-                            <img src="./image/recipe/5-1.jpg" alt="Collection Image">
-                        </a>
-                        <h3>Collection Title</h3>
-                        <p>Read more..</p>
-                    </article>
-                <?php endfor; ?>
+            <?php  
+                    $sql = "SELECT SUM(RecipeID) AS 'total1',Cuisin FROM recipe WHERE Cuisin = 'French'";
+                        $result = $con->query($sql);
+                        while($row = $result->fetch_assoc()) {
+                            $total12 = $row['total1'];
+                        }
+
+                        while($total12>0){
+
+                            $sql = "SELECT * FROM recipe WHERE RecipeID = $total12";
+                            $result = $con->query($sql);
+                                while($row = $result->fetch_assoc()) {
+                                    echo '<article class="card">';
+                                    echo '<a href="recipe.php">';
+                                    echo "<img src='data:image/jpeg;base64,".base64_encode($row['RImage'])."' alt='Recipe Image'>";
+                                    echo "<h3>" . $row["Title"] . "</h3>";
+                                    echo "<p>" . $row["Description"] . "</p>";
+                                    echo '</article>';
+                                        } 
+                            $total12--;
+                        }    
+                ?>
             </div>
         </section>
 
 
         <section class="section" id="c3">
-            <h2>Category 3</h2>
+            <h2>Chinese Recipes</h2>
             <div class="grid">
-                <?php for ($i = 0; $i < 4; $i++): ?>
-                    <article class="card">
-                        <a href="recipe.php">
-                            <img src="./image/recipe/6-1.jpg" alt="Collection Image">
-                        </a>
-                        <h3>Collection Title</h3>
-                        <p>Read more..</p>
-                    </article>
-                <?php endfor; ?>
+            <?php  
+                    $sql = "SELECT SUM(RecipeID) AS 'total1',Cuisin FROM recipe WHERE Cuisin = 'Chinese'";
+                        $result = $con->query($sql);
+                        while($row = $result->fetch_assoc()) {
+                            $total12 = $row['total1'];
+                        }
+
+                        while($total12>0){
+
+                            $sql = "SELECT * FROM recipe WHERE RecipeID = $total12";
+                            $result = $con->query($sql);
+                                while($row = $result->fetch_assoc()) {
+                                    echo '<article class="card">';
+                                    echo '<a href="recipe.php">';
+                                    echo "<img src='data:image/jpeg;base64,".base64_encode($row['RImage'])."' alt='Recipe Image'>";
+                                    echo "<h3>" . $row["Title"] . "</h3>";
+                                    echo "<p>" . $row["Description"] . "</p>";
+                                    echo '</article>';
+                                        } 
+                            $total12--;
+                        }    
+                ?>
             </div>
         </section>
 
 
         <section class="section" id="c4">
-            <h2>Category 4</h2>
+            <h2>Japanese Recipes</h2>
             <div class="grid">
-                <?php for ($i = 0; $i < 4; $i++): ?>
-                    <article class="card">
-                        <a href="recipe.php">
-                            <img src="./image/recipe/6-1.jpg" alt="Collection Image">
-                        </a>
-                        <h3>Collection Title</h3>
-                        <p>Read more..</p>
-                    </article>
-                <?php endfor; ?>
+            <?php  
+                    $sql = "SELECT SUM(RecipeID) AS 'total1',Cuisin FROM recipe WHERE Cuisin = 'Japanese'";
+                        $result = $con->query($sql);
+                        while($row = $result->fetch_assoc()) {
+                            $total12 = $row['total1'];
+                        }
+
+                        while($total12>0){
+
+                            $sql = "SELECT * FROM recipe WHERE RecipeID = $total12";
+                            $result = $con->query($sql);
+                                while($row = $result->fetch_assoc()) {
+                                    echo '<article class="card">';
+                                    echo '<a href="recipe.php">';
+                                    echo "<img src='data:image/jpeg;base64,".base64_encode($row['RImage'])."' alt='Recipe Image'>";
+                                    echo "<h3>" . $row["Title"] . "</h3>";
+                                    echo "<p>" . $row["Description"] . "</p>";
+                                    echo '</article>';
+                                        } 
+                            $total12--;
+                        }    
+                ?>
             </div>
         </section>
-
-
-
-
-
     </div>
 
 

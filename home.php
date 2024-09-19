@@ -48,15 +48,16 @@
             <a href="./category.php#c1">
                     <article class="card">
                             <img src="./image/recipe/2-1.jpg" alt="Recipe Image">
-                        <h3>Recipe Title 1 </h3>
-                        <p>Brief description of the recipe...</p>
+                            <h3>Italian Recipes</h3>
+                             <p>Brief description of the recipe...</p>
+                        
                     </article>
                     </a>
                     
                     <a href="./category.php#c2">
                     <article class="card">
                             <img src="./image/recipe/2-1.jpg" alt="Recipe Image">
-                        <h3>Recipe Title 2 </h3>
+                        <h3>French Recipes</h3>
                         <p>Brief description of the recipe...</p>
                     </article>
                     </a>
@@ -64,7 +65,7 @@
                     <a href="./category.php#c3">
                     <article class="card">
                             <img src="./image/recipe/2-1.jpg" alt="Recipe Image">
-                        <h3>Recipe Title 3 </h3>
+                        <h3>Chinese Recipes</h3>
                         <p>Brief description of the recipe...</p>
                     </article>
                     </a>
@@ -72,7 +73,7 @@
                     <a href="./category.php#c4">
                     <article class="card">
                             <img src="./image/recipe/2-1.jpg" alt="Recipe Image">
-                        <h3>Recipe Title 4 </h3>
+                        <h3>Japanese Recipes</h3>
                         <p>Brief description of the recipe...</p>
                     </article>
                     </a>

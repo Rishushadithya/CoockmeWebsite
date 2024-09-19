@@ -62,8 +62,6 @@
         </form>
     </div>
     <script src="./JS/recipe_create.js"></script>
-    <?php require_once('footer.php'); ?>
-
-    
+    <?php require_once('footer.php'); ?>    
 </body>
 </html>
