@@ -22,9 +22,7 @@
                         while($row = $result->fetch_assoc()) {
                             $total12 = $row['total1'];
                         }
-
                         while($total12>0){
-
                             $sql = "SELECT * FROM recipe WHERE RecipeID = $total12";
                             $result = $con->query($sql);
                                 while($row = $result->fetch_assoc()) {
@@ -34,7 +32,7 @@
                                     echo "<h3>" . $row["Title"] . "</h3>";
                                     echo "<p>" . $row["Description"] . "</p>";
                                     echo '</article>';
-                                        } 
+                                } 
                             $total12--;
                         }    
                 ?>

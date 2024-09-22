@@ -16,7 +16,7 @@
         <div class="footer-content">
             <div class="logo-container">
                 <div class="flogo" id="flogo">
-                    <img src="./image/logo.jpg" alt="Logo">
+                    <img src="./image/logo.jpg" alt="Logo" id="flogoimage">
                 </div>
             </div>
             <div class="footer-links">

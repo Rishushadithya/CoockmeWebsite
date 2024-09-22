@@ -47,7 +47,7 @@
             
             <label for="difficulty">Difficulty:</label>
             <div class="stars">
-                <span class="star" data-value="1"> 1&#9733;   </span>
+                <span class="star" data-value="1"> 1&#9733;  </span>
                 <span class="star" data-value="2"> 2&#9733;  </span>
                 <span class="star" data-value="3"> 3&#9733;  </span>
                 <span class="star" data-value="4"> 4&#9733;  </span>

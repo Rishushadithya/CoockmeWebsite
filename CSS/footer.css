@@ -46,7 +46,7 @@
     border: 1px solid #d0d0d0;
 }
 
-.flogo img {
+#flogoimage {
     max-width: 80%; /* Reduced from 90% to minimize the logo */
     max-height: 80%;
     object-fit: cover;
