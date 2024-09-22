@@ -12,10 +12,10 @@
     <?php
         require_once ('header.php'); // Include header of the page
     ?>
-    <div class="container">
-        <section class="section" id="c1">
+    <div class="container1">
+        <section class="section1" id="c1">
             <h2>Italian Recipes</h2>
-            <div class="grid">     
+            <div class="grid1">     
                 <?php  
                     $sql = "SELECT SUM(RecipeID) AS 'total1',Cuisin FROM recipe WHERE Cuisin = 'Italian'";
                         $result = $con->query($sql);
@@ -23,7 +23,7 @@
                             $total12 = $row['total1'];
                         }
                         while($total12>0){
-                            $sql = "SELECT * FROM recipe WHERE RecipeID = $total12";
+                            $sql = "SELECT * FROM recipe WHERE Cuisin = 'Italian'";
                             $result = $con->query($sql);
                                 while($row = $result->fetch_assoc()) {
                                     echo '<article class="card">';
@@ -34,17 +34,18 @@
                                     echo '</article>';
                                 } 
                             $total12--;
-                        }    
+                        } 
                 ?>
                    
             </div>
         </section> 
 
 
-        <section class="section" id="c2">
+        <section class="section1" id="c2">
             <h2>French Recipes</h2>
-            <div class="grid">
-            <?php  
+            <div class="grid1">
+            <?php 
+                
                     $sql = "SELECT SUM(RecipeID) AS 'total1',Cuisin FROM recipe WHERE Cuisin = 'French'";
                         $result = $con->query($sql);
                         while($row = $result->fetch_assoc()) {
@@ -53,7 +54,7 @@
 
                         while($total12>0){
 
-                            $sql = "SELECT * FROM recipe WHERE RecipeID = $total12";
+                            $sql = "SELECT * FROM recipe WHERE Cuisin = 'French' AND RecipeID = $total12";
                             $result = $con->query($sql);
                                 while($row = $result->fetch_assoc()) {
                                     echo '<article class="card">';
@@ -70,9 +71,9 @@
         </section>
 
 
-        <section class="section" id="c3">
+        <section class="section1" id="c3">
             <h2>Chinese Recipes</h2>
-            <div class="grid">
+            <div class="grid1">
             <?php  
                     $sql = "SELECT SUM(RecipeID) AS 'total1',Cuisin FROM recipe WHERE Cuisin = 'Chinese'";
                         $result = $con->query($sql);
@@ -82,7 +83,7 @@
 
                         while($total12>0){
 
-                            $sql = "SELECT * FROM recipe WHERE RecipeID = $total12";
+                            $sql = "SELECT * FROM recipe WHERE Cuisin = 'Chinese' AND RecipeID = $total12 ";
                             $result = $con->query($sql);
                                 while($row = $result->fetch_assoc()) {
                                     echo '<article class="card">';
@@ -111,7 +112,7 @@
 
                         while($total12>0){
 
-                            $sql = "SELECT * FROM recipe WHERE RecipeID = $total12";
+                            $sql = "SELECT * FROM recipe WHERE Cuisin = 'Japanese' AND RecipeID = $total12 ";
                             $result = $con->query($sql);
                                 while($row = $result->fetch_assoc()) {
                                     echo '<article class="card">';
