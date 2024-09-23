@@ -23,7 +23,7 @@ require('config.php');
         
         <div class="search-bar">
             <input id="search" type="text" placeholder="Search..">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <button type="submit" id="searchbutton"><i class="fa fa-search"></i></button>
         </div>
 
         <div class="user-menu">

@@ -20,7 +20,7 @@
                     $sql = "SELECT SUM(RecipeID) AS 'total1',Cuisin FROM recipe WHERE Cuisin = 'Italian'";
                         $result = $con->query($sql);
                         while($row = $result->fetch_assoc()) {
-                            $total12 = $row['total1'];
+                            $total12 = $row['total1']; 
                         }
                         while($total12>0){
                             $sql = "SELECT * FROM recipe WHERE Cuisin = 'Italian'";

@@ -1,7 +1,3 @@
-<?php
-// session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">  
 <head>
@@ -19,7 +15,7 @@
     
 <div class="container">
         <h1>Create Recipe</h1>
-        <form id="recipeForm">
+        <form id="recipeForm" action="./recipe_createHandler.php" method="post">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required>
 
@@ -47,21 +43,18 @@
             
             <label for="difficulty">Difficulty:</label>
             <div class="stars">
-                <span class="star" data-value="1"> 1&#9733;  </span>
+                <span class="star" data-value="1" > 1&#9733;  </span>
                 <span class="star" data-value="2"> 2&#9733;  </span>
                 <span class="star" data-value="3"> 3&#9733;  </span>
                 <span class="star" data-value="4"> 4&#9733;  </span>
                 <span class="star" data-value="5"> 5&#9733;  </span>
             </div>
             
-
-        <button type="submit">Submit</button>
-    
-        
-           
+             <button type="submit" name="submitBtn" id="submitBtn">Submit</button>
         </form>
     </div>
     <script src="./JS/recipe_create.js"></script>
     <?php require_once('footer.php'); ?>    
 </body>
 </html>
+
