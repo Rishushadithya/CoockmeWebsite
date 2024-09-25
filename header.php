@@ -1,5 +1,5 @@
 <?php
-// session_start();
+require('config.php');
 ?>
 
 <!DOCTYPE html>
@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="./CSS/header.css">
     
     <title>header</title>
+
 </head>
 <body>
+
     <div class="header">
         <a href="home.php" class="logo">
             <img src="./icon/logo2.gif" alt="logo">
@@ -21,11 +23,11 @@
         
         <div class="search-bar">
             <input id="search" type="text" placeholder="Search..">
-            <input id="sbutton" type="button" value="Search">
+            <button type="submit" id="searchbutton"><i class="fa fa-search"></i></button>
         </div>
 
         <div class="user-menu">
-                <img src="./images/profile.png" alt="User Icon" class="user-icon" onclick="toggleDropdown()">
+                <img src="./icon/user.png" alt="User Icon" class="user-icon" onclick="toggleDropdown()">
                 <div class="dropdown">
                     <a href="profile.php">Account</a>
                     <a href="logout.php">Logout</a>
@@ -39,5 +41,6 @@
         <a href="" class="nav-link">Contact Us</a>
         <a href="./AboutUS.php" class="nav-link">About Us</a>
     </nav>
+    <script src="./JS/header.js"></script>
 </body>
 </html>

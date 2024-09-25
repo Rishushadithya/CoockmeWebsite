@@ -50,17 +50,29 @@ button[type="button"] {
     height: 200px;
 }
 
-button[type="button"] {
-    width: auto;
-    background-color: #04AA6D;
-    color: white;
-    border: none;
-    cursor: pointer;
+
+#time{
+    display: flex; 
+    gap: 100px;
 }
 
-#servings ,#cuisine, #cookingTime, #difficulty{
+#servings ,  #difficulty{
     width: 75px;
     display: inline-block;
+}
+
+#cookingTime,#preparingTime,#cuisine{
+
+    width: 100px;
+    display: inline-block;
+}
+
+#difficulty{
+    font-size: 20PX;
+   
+}
+#submitBtn{
+    margin: left;
 }
 
 
@@ -70,7 +82,7 @@ button {
     border: none;
     cursor: pointer;
     width: 70%;
-    margin: 0 center;
+    margin:center;
 }
 
 button:hover {

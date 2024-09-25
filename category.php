@@ -12,74 +12,38 @@
     <?php
         require_once ('header.php'); // Include header of the page
     ?>
-    <div class="container">
-        <section class="section" id="c1">
-            <h2>Category 1</h2>
-            <div class="grid">
-                <?php for ($i = 0; $i < 4; $i++): ?>
-                    <article class="card">
-                        <a href="recipe.php">
-                            <img src="./image/recipe/7-1.jpg" alt="Collection Image">
-                        </a>
-                        <h3>Collection Title</h3>
-                        <p>Read more..</p>
-                    </article>
-                <?php endfor; ?>
+    <div class="container1">
+        <section class="section1" id="c1">
+            <h2>Italian Recipes</h2>
+            <div class="grid1">
+                <?php
+                require_once('config.php');
+
+                $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'chinese'";
+                $result = $con->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<article class="card">';
+                        echo '<a href="recipe.php">';
+                        echo "<img src='data:image/jpeg;base64," . base64_encode($row['Image']) . "' alt='Recipe Image'>";
+                        echo "<h3>" . $row["Recipe_Name"] . "</h3>";
+                        echo "<p>" . $row["Description"] . "</p>";
+                        echo '</a>';
+                        echo '</article>';
+                    }
+                } else {
+                    echo "<p>No recipes found.</p>";
+                }
+                ?>
             </div>
         </section>
-
-
-        <section class="section" id="c2">
-            <h2>Category 2</h2>
-            <div class="grid">
-                <?php for ($i = 0; $i < 4; $i++): ?>
-                    <article class="card">
-                        <a href="recipe.php">
-                            <img src="./image/recipe/5-1.jpg" alt="Collection Image">
-                        </a>
-                        <h3>Collection Title</h3>
-                        <p>Read more..</p>
-                    </article>
-                <?php endfor; ?>
-            </div>
-        </section>
-
-
-        <section class="section" id="c3">
-            <h2>Category 3</h2>
-            <div class="grid">
-                <?php for ($i = 0; $i < 4; $i++): ?>
-                    <article class="card">
-                        <a href="recipe.php">
-                            <img src="./image/recipe/6-1.jpg" alt="Collection Image">
-                        </a>
-                        <h3>Collection Title</h3>
-                        <p>Read more..</p>
-                    </article>
-                <?php endfor; ?>
-            </div>
-        </section>
-
-
-        <section class="section" id="c4">
-            <h2>Category 4</h2>
-            <div class="grid">
-                <?php for ($i = 0; $i < 4; $i++): ?>
-                    <article class="card">
-                        <a href="recipe.php">
-                            <img src="./image/recipe/6-1.jpg" alt="Collection Image">
-                        </a>
-                        <h3>Collection Title</h3>
-                        <p>Read more..</p>
-                    </article>
-                <?php endfor; ?>
-            </div>
-        </section>
+        
+        
 
 
 
-
-
+        
     </div>
 
 
