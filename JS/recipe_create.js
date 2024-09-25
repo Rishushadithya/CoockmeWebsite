@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     const stars = document.querySelectorAll('.star');
 
@@ -11,3 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.querySelectorAll('.star').forEach(star => {
+    star.addEventListener('click', function() {
+        document.getElementById('difficultyInput').value = this.getAttribute('data-value');
+    });
+});
+

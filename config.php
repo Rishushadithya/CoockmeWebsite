@@ -1,6 +1,6 @@
 <?php
 
-$con = new mysqli("localhost","root","","cookmeweb");
+$con = new mysqli("localhost","root","","cookme");
 
  if($con->connect_error){
 

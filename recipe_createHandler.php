@@ -1,24 +1,33 @@
 <?php
+require_once('config.php');
 
-// Check if submit button pressed
 if (isset($_POST["submitBtn"])) {
-    $titel = $_POST["title"];
-    $title = $_POST["title"];
-    $description = $_POST["description"];
-    $ingredients = $_POST["ingredients"];
-    $method = $_POST["method"];
-    $servings = $_POST["servings"];
-    $cookingTime = $_POST["cookingTime"];
-    $cuisine = $_POST["cuisine"];
-    $difficulty = $_POST["difficulty"];
-    
-
-    $sql=
-
-
-    // Execute INSERT query
-    if (mysqli_query($con, "INSERT INTO contact (name, email, message) VALUES ('$name', '$email', '$message')")) {
-        echo "Record inserted successfully";
+    if (is_uploaded_file($_FILES['image']['tmp_name'])) {
+        $tit = $_POST["title"];
+        $image = $_FILES['image']['tmp_name'];
+        $imgContent = addslashes(file_get_contents($image));
+        $descrip = $_POST["description"];
+        $ingredi = $_POST["ingredients"];
+        $method = $_POST["method"];
+        $serv = $_POST["servings"];
+        $ctime = $_POST["CTime"];
+        $ptime = $_POST["PTime"];
+        $cuisi = $_POST["cuisine"];
+        $difficul = $_POST["difficulty"];
+        $pending = "pending";
+        
+        $stmt = $con->prepare("INSERT INTO recipe (Recipe_Name,Image,Description,Ingredients,Method,Serves,Prepare_Time,Cook_Time,Cuisine,Difficulty,Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssissss",$tit, $imgContent, $descrip, $ingredi, $method, $serv, $ptime, $ctime, $cuisi, $difficul, $pending);
+        
+        if ($stmt->execute()) {
+            echo "Record inserted successfully";
+        } else {
+            echo "Error inserting record: " . $stmt->error;
+        }
+        
+        $stmt->close();
+    } else {
+        echo "File upload failed.";
     }
 }
 ?>
