@@ -11,17 +11,17 @@ if (isset($_POST["submitBtn"])) {
         $image = $_FILES['image']['name'];
         $target = "image/" . basename($image);
         
-        if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-            $sql = "INSERT INTO recipe (Image) VALUES ('$image')";
+        // if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+        //     $sql = "INSERT INTO recipe (Image) VALUES ('$image')";
             
-            if (mysqli_query($con, $sql)) {
-                echo "<script>alert('Product added successfully!');</script>";
-            } else {
-                echo "<script>alert('Error adding product: " . mysqli_error($con) . "');</script>";
-            }
-        } else {
-            echo "<script>alert('Failed to upload image.');</script>";
-        }
+        //     if (mysqli_query($con, $sql)) {
+        //         echo "<script>alert('Product added successfully!');</script>";
+        //     } else {
+        //         echo "<script>alert('Error adding product: " . mysqli_error($con) . "');</script>";
+        //     }
+        // } else {
+        //     echo "<script>alert('Failed to upload image.');</script>";
+        // }
 
 
         $descrip = $_POST["description"];
