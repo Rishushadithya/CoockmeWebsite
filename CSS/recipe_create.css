@@ -16,11 +16,13 @@ body {
 
 h1 {
     text-align: center;
+    
 }
 
 label {
     display: block;
     margin-top: 10px;
+    margin: 20px auto; 
     
 }
 
@@ -33,13 +35,6 @@ input, textarea, select, button {
   
 }
 
-button[type="button"] {
-    width: auto;
-    background-color: #04AA6D;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
 #ingredients{
     height: 150px;
 }
@@ -59,30 +54,34 @@ button[type="button"] {
 #servings ,  #difficulty{
     width: 75px;
     display: inline-block;
+    margin: 20px auto; 
+    text-align: center; 
 }
 
 #cookingTime,#preparingTime,#cuisine{
 
     width: 100px;
     display: inline-block;
+    margin: 20px auto; 
+    text-align: center; 
 }
 
 #difficulty{
     font-size: 20PX;
+    display: block;
+    margin: 20px auto; 
+    text-align: center; 
    
 }
-#submitBtn{
-    margin: left;
-}
-
-
-button {
+#submitBtn {
     background-color: #5c8fb8;
     color: white;
     border: none;
     cursor: pointer;
     width: 70%;
-    margin:center;
+    display: block;
+    margin: 20px auto; 
+    text-align: center; 
 }
 
 button:hover {
@@ -93,6 +92,8 @@ button:hover {
 .stars {
     
     justify-content: center;
+    margin: 20px auto; 
+    text-align: center; 
     
 }
 
