@@ -92,7 +92,7 @@
         <button type="submit" name="submitBtn" id="submitBtn">Update</button>
     </form>
 </div>
-<script src="./JS/recipe_create.js"></script>
+<script src="./JS/recipe_edit.js"></script>
 <?php require_once('footer.php'); ?>    
 </body>
 </html>

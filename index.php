@@ -26,7 +26,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            font-size: 3vw; /* Changed from px to vw for responsiveness */
+            font-size: 3vw;
             animation: fadeIn 2s ease-in-out;
         }
         #welcome {

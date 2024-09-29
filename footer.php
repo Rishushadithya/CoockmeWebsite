@@ -5,7 +5,7 @@
     <div class="footer-content">
         <div class="logo-container">
             <div class="logo">
-                <img src="./image/logo.jpg" alt="Logo">
+                <img src="./icon/1.png" alt="Logo">
             </div>
         </div>
         <div class="footer-links">
