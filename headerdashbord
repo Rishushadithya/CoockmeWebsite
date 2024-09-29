@@ -20,12 +20,6 @@ require('config.php');
         <a href="home.php" class="logo">
             <img src="./icon/logo2.gif" alt="logo">
         </a>
-        
-        <div class="search-bar">
-            <input id="search" type="text" placeholder="Search..">
-            <button type="submit" id="searchbutton"><i class="fa fa-search"></i></button>
-        </div>
-
         <div class="user-menu">
                 <img src="./icon/user.png" alt="User Icon" class="user-icon" onclick="toggleDropdown()">
                 <div class="dropdown">
