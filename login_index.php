@@ -3,19 +3,65 @@ include('config.php');
 session_start();
 error_reporting(0);
 
+$username = $_POST['email'];
+$password = $_POST['password'];
 
-if (isset($_POST['login'])) {
-  $email = $_POST['email'];
-  $password = md5($_POST['password']);
-  $query = mysqli_query($con, "SELECT ID FROM tbladmin WHERE Email='$email' && Password='$password'");
-  $ret = mysqli_fetch_array($query);
-  if ($ret > 0) {
-    $_SESSION['userid'] = $ret['ID'];
-    header('location:dashboard.php');
-  } else {
-    echo '<script>alert("Invalid Details.")</script>';
-  }
+$sql_admin = "SELECT * FROM admin WHERE email='$username' AND password='$password'";
+$result_admin = $conn->query($sql_admin);
+
+$sql_moderator = "SELECT * FROM moderator WHERE email='$username' AND password='$password'";
+$result_moderator = $conn->query($sql_moderator);
+
+
+$sql_creatorCheck = "SELECT * FROM user WHERE email='$username' AND password='$password' ";
+$creatorid=$row["User_ID "];
+$sql_creator= "SELECT * FROM creator WHERE User_ID = '$creatorid'";
+$result_creator = $conn->query($sql_creator);
+
+
+$sql_user = "SELECT * FROM user WHERE email='$username' AND password='$password'";
+$result_user = $conn->query($sql_user);
+
+
+if ($result_admin->num_rows > 0) {
+    $_SESSION['id'] = $ROW ['Admin_ID'];
+    $_SESSION['table'] = 'admin';
+
+    header("Location: admin_dashboard.php");
+   
+    exit();
 }
+
+else if ($result_moderator->num_rows > 0) {    
+    $_SESSION['id'] = $ROW ['Moderator_ID'];
+    $_SESSION['table'] = 'moderator';
+
+    header("Location: user_dashboard.php");
+    exit();
+}
+
+else if ($result_creator->num_rows > 0) {    
+  $_SESSION['id'] = $ROW ['Moderator_ID'];
+  $_SESSION['table'] = 'creator';
+  
+  header("Location: user_dashboard.php");
+  exit();
+}
+
+else if ($result_user->num_rows > 0) {
+    $_SESSION['id'] = $ROW ['User_ID'];
+    $_SESSION['table'] = 'user';
+
+    header("Location: user_dashboard.php");
+    exit();
+}
+
+else {
+    echo "Invalid username or password.";
+}
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +70,7 @@ if (isset($_POST['login'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login to Cook Me</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="./CSS/login.css">
+  <link rel="stylesheet" href="./CSS/login.css">
   
  
 </head>

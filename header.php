@@ -1,5 +1,7 @@
 <?php
 require('config.php');
+$_SESSION['userid']=2;
+$_SESSION['cp']="chinese";
 ?>
 
 <!DOCTYPE html>

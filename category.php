@@ -18,14 +18,16 @@
                 <?php
                 require_once('config.php');
                 
-                $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'italian'";
+                
+                $cuisine = $_SESSION['cp'];
+                $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = '$cuisine'";
                 $result = $con->query($sql);
                 
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         echo '<article class="card">';
                         echo '<a href="recipe.php">';
-                        echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
+                        echo '<img src="data:image/jpeg;base64,' . base64_encode($row['I mage']) . '" alt="Recipe Image">';
                         echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
                         echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
                         echo '</a>';
@@ -70,6 +72,8 @@
             <h2>Chinese Recipes</h2>
             <div class="grid1">
                 <?php
+                $_SESSION['cp']="chinese";
+
                 require_once('config.php');
                 
                 $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'chinese'";
