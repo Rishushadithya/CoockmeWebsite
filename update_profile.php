@@ -1,12 +1,18 @@
 <?php
-
+session_start();
+$uid=$_SESSION['uid'] ;
 // Database connection
-require 'myconfig.php';
+require 'config.php';
 
 if (isset($_POST["update"])) {
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $image = $_FILES['image']['tmp_name'];
         $imgContent = file_get_contents($image);
+    } else {
+        // Fetch current image content from the database if no new image is uploaded
+        $result = $con->query("SELECT Profile_Image FROM creator WHERE User_ID='$uid'");
+        $row = $result->fetch_assoc();
+        $imgContent = $row['Profile_Image'];
     }
 
     $firstName = $_POST["firstName"];
@@ -19,18 +25,23 @@ if (isset($_POST["update"])) {
     $experience = $_POST["experience"];
     $currentWork = $_POST["currentWork"];
 
-    $updateuser = "UPDATE user SET First_Name='$firstName', Last_Name='$lastName', Email='$email', Country='$country', Contact_Number='$mobile'";
-    $updatecreator = "UPDATE creator SET Title='$title', Bio='$bio', Years_of_Experience='$experience', Current_Work='$currentWork', Profile_Picture='$imgContent'";
+    $user = $con->prepare("UPDATE user SET First_Name=?, Last_Name=?, Email=?, Country=?, Contact_Number=? WHERE User_ID=?");
+    $user->bind_param("sssssi", $firstName, $lastName, $email, $country, $mobile, $uid);
+
+    $creator = $con->prepare("UPDATE creator SET Title=?, Bio=?, Years_of_Experience=?, Current_Work=?, Profile_Image=? WHERE User_ID=?");
+    $creator->bind_param("sssssi", $title, $bio, $experience, $currentWork, $imgContent, $uid);
  
-    if ($con->query($updateuser) === TRUE && $con->query($updatecreator) === TRUE) {
-        header("Location: creator_profile.php");
+    if ($user->execute() && $creator->execute()) {
+        echo "<script>alert('Profile updated successfully!')</script>".header("Location: creator_profile.php");
         
     } else {
         echo "Error updating record: " . $con->error;
+        echo "<script>alert('Profile not updated!')</script>";
+        header("Location: creator_profile.php");
     }
 
-    $con->close();
-
 }
+
+$con->close();
 
 ?>

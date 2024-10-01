@@ -1,26 +1,4 @@
-<?php
-    //Database connection
-    require 'myconfig.php';
-    require 'header.php';
 
-    // Fetch total counts for recipe statuses
-    $all_recipes_query = "SELECT COUNT(*) AS total FROM recipe";
-    $active_recipes_query = "SELECT COUNT(*) AS total FROM recipe WHERE Status = 'Active'";
-    $pending_recipes_query = "SELECT COUNT(*) AS total FROM recipe WHERE Status = 'Pending'";
-    $rejected_recipes_query = "SELECT COUNT(*) AS total FROM recipe WHERE Status = 'Rejected'";
-
-    $all_recipes_result = mysqli_query($con, $all_recipes_query);
-    $active_recipes_result = mysqli_query($con, $active_recipes_query);
-    $pending_recipes_result = mysqli_query($con, $pending_recipes_query);
-    $rejected_recipes_result = mysqli_query($con, $rejected_recipes_query);
-
-    $all_recipes = mysqli_fetch_assoc($all_recipes_result)['total'];
-    $active_recipes = mysqli_fetch_assoc($active_recipes_result)['total'];
-    $pending_recipes = mysqli_fetch_assoc($pending_recipes_result)['total'];
-    $rejected_recipes = mysqli_fetch_assoc($rejected_recipes_result)['total'];
-
-    
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +17,30 @@
     <header>
         <?php require_once('header.php'); ?>
     </header>
+
+    <?php
+    //Database connection
+    require 'config.php';
+
+    // Fetch total counts for recipe statuses
+    
+    $all_recipes_query = "SELECT COUNT(*) AS total FROM recipe WHERE Creator_ID = '$sid'";
+    $active_recipes_query = "SELECT COUNT(*) AS total FROM recipe WHERE Status = 'Active' AND Creator_ID = '$sid'";
+    $pending_recipes_query = "SELECT COUNT(*) AS total FROM recipe WHERE Status = 'Pending' AND Creator_ID = '$sid'";
+    $rejected_recipes_query = "SELECT COUNT(*) AS total FROM recipe WHERE Status = 'Rejected' AND Creator_ID = '$sid'";
+
+    $all_recipes_result = mysqli_query($con, $all_recipes_query);
+    $active_recipes_result = mysqli_query($con, $active_recipes_query);
+    $pending_recipes_result = mysqli_query($con, $pending_recipes_query);
+    $rejected_recipes_result = mysqli_query($con, $rejected_recipes_query);
+
+    $all_recipes = mysqli_fetch_assoc($all_recipes_result)['total'];
+    $active_recipes = mysqli_fetch_assoc($active_recipes_result)['total'];
+    $pending_recipes = mysqli_fetch_assoc($pending_recipes_result)['total'];
+    $rejected_recipes = mysqli_fetch_assoc($rejected_recipes_result)['total'];
+
+    
+    ?>
 
     <div class="container">
         <!-- Sidebar -->
@@ -70,7 +72,7 @@
                     </ul>
                 </div>
                 
-                <button class="create-post">+ Create a Recipe</button>
+                <button class="create-post" ><a href="recipe_create.php">+ Create a Recipe</a></button>
         </div>
 
         <!-- Main Content -->
@@ -83,14 +85,14 @@
             </div>
 
             <?php
-                require 'myconfig.php';
+                
 
                 $filter = isset($_GET['filter']) ? $_GET['filter'] : 'All';
 
                 if ($filter == 'All') {
-                    $query = "SELECT Recipe_Name, Status, Cuisine FROM recipe";
+                    $query = "SELECT Recipe_Name, Status, Cuisine FROM recipe WHERE Creator_ID = '$sid'";
                 } else {
-                    $query = "SELECT Recipe_Name, Status, Cuisine FROM recipe WHERE Status = '$filter'";
+                    $query = "SELECT Recipe_Name, Status, Cuisine FROM recipe WHERE Status = '$filter' AND Creator_ID = '$sid'";
                 }
 
                 $result = mysqli_query($con, $query);
@@ -107,7 +109,6 @@
 
                     <?php
                         // Database connection
-                        require 'myconfig.php';
                         
 
                         if ($result->num_rows > 0) {
@@ -117,6 +118,7 @@
                                 <td>".$row["Recipe_Name"]."</td>
                                 <td>".$row["Status"]."</td>
                                 <td>".$row["Cuisine"]."</td>
+
                                 <td><a href='#'>Edit</a> | <a href='#'>Delete</a></td>
                                 </tr>";
                             }
