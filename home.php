@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +10,7 @@
 <body>
      <?php require_once('header.php'); ?> 
 
+     <br><br><br>
     <main class="container">
         <div>
             <div style="position: relative; text-align: center;">
@@ -43,98 +43,171 @@
 
         <section class="section">
             <h2>Recipes in this Category</h2>
+            <br>
             <div class="grid">
         
             <a href="./category.php#c1">
                     <article class="card">
-                            <img src="./image/recipe/2-1.jpg" alt="Recipe Image">
+                            <img src="./image/italian.jpg" alt="Recipe Image">
                             <h3>Italian Recipes</h3>
-                             <p>Brief description of the recipe...</p>
+                             <p>Italian cuisine is celebrated for its bold flavors, cooking style and fresh ingredients, 
+                                featuring dishes like pasta, pizza, risotto, and tiramisu, 
+                                often enhanced with herbs, olive oil, and regional specialties.</p>
                         
                     </article>
                     </a>
                     
                     <a href="./category.php#c2">
                     <article class="card">
-                            <img src="./image/recipe/2-1.jpg" alt="Recipe Image">
+                            <img src="./image/french.jpg" alt="Recipe Image">
                         <h3>French Recipes</h3>
-                        <p>Brief description of the recipe...</p>
+                        <p>French cuisine is renowned for its sophistication and artistry, 
+                            featuring dishes like pastries. 
+                            It emphasizes fresh ingredients, rich flavors, and meticulous cooking techniques, showcasing regional diversity.</p>
                     </article>
                     </a>
                     
                     <a href="./category.php#c3">
                     <article class="card">
-                            <img src="./image/recipe/2-1.jpg" alt="Recipe Image">
+                            <img src="./image/chinese.jpg" alt="Recipe Image">
                         <h3>Chinese Recipes</h3>
-                        <p>Brief description of the recipe...</p>
+                        <p>Chinese cuisine is diverse and flavorful, known for its bold spices and varied cooking techniques. 
+                            Popular dishes include dim sum, fried rice, noodles, and stir-fries, often featuring fresh vegetables and meats.</p>
                     </article>
                     </a>
 
                     <a href="./category.php#c4">
                     <article class="card">
-                            <img src="./image/recipe/2-1.jpg" alt="Recipe Image">
+                            <img src="./image/japanese.jpg" alt="Recipe Image">
                         <h3>Japanese Recipes</h3>
-                        <p>Brief description of the recipe...</p>
+                        <p>Japanese cuisine emphasizes harmony and presentation, featuring sushi, sashimi, ramen, and tempura. 
+                            It celebrates seasonal ingredients and cooking methods,
+                             often accompanied by rice and miso soup.</p>
                     </article>
                     </a>
-                
+                <br>
             </div>
             <a href="./category.php" class="btn">See More</a>
         </section>
 
         <section class="section">
-            <h2>Most Popular Collections</h2>
-            <div class="slider">
-                <div class="grid">
-                    <?php for ($i = 0; $i < 4; $i++): ?>
-                        <article class="card">
-                            <a href="recipe.php">
-                                <img src="./image/recipe/3-1.jpg" alt="Collection Image">
-                            </a>
-                            <h3>Collection Title</h3>
-                            <p>Brief description of the collection...</p>
-                        </article>
-                    <?php endfor; ?>
-                </div>
-                <a href="#" class="slider-nav prev">&#10094;</a>
-                <a href="#" class="slider-nav next">&#10095;</a>
+        <h2>Daily Collection</h2>
+            <br>
+            <div class="grid">
+        
+            <a href="#">
+                    <article class="card">
+                            <img src="./image/recipe/breakfast.jpg" alt="Recipe Image">
+                            <h3>Breakfast Recipes</h3>
+                             <p>Breakfast is the first meal of the day, typically eaten in the morning. 
+                                It provides energy and nutrients to start the day, often including items like eggs, toast, cereal, and fruit.</p>
+                        
+                    </article>
+                    </a>
+                    
+                    <a href="#">
+                    <article class="card">
+                            <img src="./image/recipe/lunch.jpg" alt="Recipe Image">
+                        <h3>Lunch Recipes</h3>
+                        <p>Lunch is a midday meal typically eaten between breakfast and dinner. 
+                            It can range from light to hearty, often consisting of sandwiches, salads, soups, or hot dishes, providing some energy.</p>
+                    </article>
+                    </a>
+                    
+                    <a href="#">
+                    <article class="card">
+                            <img src="./image/recipe/snacks.jpg" alt="Recipe Image">
+                        <h3>Snacks Recipes</h3>
+                        <p>Snacks are small portions of food typically eaten between meals. 
+                            They can be sweet or savory, ranging from fruits and nuts to chips and cookies, offering quick energy and satisfying hunger.</p>
+                    </article>
+                    </a>
+
+                    <a href="#">
+                    <article class="card">
+                            <img src="./image/recipe/dinner.jpg" alt="Recipe Image">
+                        <h3>Dinner Recipes</h3>
+                        <p>Dinner is the main meal of the day, typically eaten in the evening. 
+                            It often includes a variety of dishes, such as proteins, vegetables, and grains, providing nourishment and satisfying.</p>
+                    </article>
+                    </a>
+                <br>
             </div>
-            <a href="" class="btn">See More</a>
+            <a href="#" class="btn">See More</a>
         </section>
 
         <section class="section">
             <h2>This Month's Recipe Collections</h2>
+            <br>
             <div class="grid">
-                <?php for ($i = 0; $i < 4; $i++): ?>
+        
+            <a href="#">
                     <article class="card">
-                        <a href="recipe.php">
-                            <img src="./image/recipe/4-1.jpg" alt="Collection Image">
-                        </a>
-                        <h3>Collection Title</h3>
+                            <img src="./image/recipe/burger.jpg" alt="Recipe Image">
+                            <h3>Bugers Recipes</h3>
                     </article>
-                <?php endfor; ?>
+                    </a>
+                    
+                    <a href="#">
+                    <article class="card">
+                            <img src="./image/recipe/rice.jpg" alt="Recipe Image">
+                        <h3>Biriyani Recipes</h3>
+                    </article>
+                    </a>
+                    
+                    <a href="#">
+                    <article class="card">
+                            <img src="./image/recipe/soup.jpg" alt="Recipe Image">
+                        <h3>Soups Recipes</h3>
+                    </article>
+                    </a>
+
+                    <a href="#">
+                    <article class="card">
+                            <img src="./image/recipe/cake.jpg" alt="Recipe Image">
+                        <h3>Cake Recipes</h3>
+                    </article>
+                    </a>
+                <br>
             </div>
-            <a href="" class="btn">See More</a>
+            <a href="#" class="btn">See More</a>
         </section>
 
         <section class="section">
             <h2>You May Like Other Recipe Category Collection</h2>
-            <div class="slider">
-                <div class="grid">
-                    <?php for ($i = 0; $i < 4; $i++): ?>
-                        <article class="card">
-                            <a href="#">
-                                <img src="./image/recipe/5-1.jpg" alt="Category Image">
-                            </a>
-                            <h3>Category Name</h3>
-                        </article>
-                    <?php endfor; ?>
-                  
-                </div>
-                <a href="#" class="slider-nav prev">&#10094;</a>
-                <a href="#" class="slider-nav next">&#10095;</a>
+            <br>
+            <div class="grid">
+        
+            <a href="#">
+                    <article class="card">
+                            <img src="./image/recipe/srilankan.jpg" alt="Recipe Image">
+                            <h3>Sri Lankan Recipes</h3>
+                    </article>
+                    </a>
+                    
+                    <a href="#">
+                    <article class="card">
+                            <img src="./image/recipe/american.jpg" alt="Recipe Image">
+                        <h3>American Recipes</h3>
+                    </article>
+                    </a>
+                    
+                    <a href="#">
+                    <article class="card">
+                            <img src="./image/recipe/arabic.jpg" alt="Recipe Image">
+                        <h3>Arabic Recipes</h3>
+                    </article>
+                    </a>
+
+                    <a href="#">
+                    <article class="card">
+                            <img src="./image/recipe/indian.jpg" alt="Recipe Image">
+                        <h3>Indian Recipes</h3>
+                    </article>
+                    </a>
+                <br>
             </div>
-            <a href="" class="btn">See More</a>
+            <a href="#" class="btn">See More</a>
         </section>
     </main>
 

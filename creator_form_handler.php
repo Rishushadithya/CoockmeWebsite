@@ -1,7 +1,7 @@
 <?php
 
 // Database connection
-require 'myconfig.php';
+require 'config.php';
 
 if (isset($_POST["submit"])) {
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {

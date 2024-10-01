@@ -35,20 +35,22 @@ if (isset($_POST['login'])) {
     else if ($result_user->num_rows > 0) {
        
        
-        $creatorid=$row["User_ID"];
-        $sql_creator= "SELECT * FROM creator WHERE User_ID = '$creatorid'";
+        $row = $result_user->fetch_assoc();
+        $creatorid = $row["User_ID"];
+        $sql_creator = "SELECT * FROM creator WHERE User_ID = '$creatorid'";
         $result_creator = $con->query($sql_creator);
         
-        if ($result_creator->num_rows > 0) {    
-            $_SESSION['id'] = $ROW ['Moderator_ID'];
+        if ($result_creator->num_rows > 0) {
+            $row_creator = $result_creator->fetch_assoc();
+            $_SESSION['id'] = $row_creator['Creator_ID'];
             $_SESSION['table'] = 'creator';
-            $_SESSION['name'] = $ROW ['Fist_Name']. $ROW ['Larst_Name'];
+            $_SESSION['name'] = $row_creator['First_Name'] . ' ' . $row_creator['Last_Name'];
             header("Location: creator_dashboard.php");
             exit();
-        }else{
-            $_SESSION['id'] = $ROW ['User_ID'];
+        } else {
+            $_SESSION['id'] = $row['User_ID'];
             $_SESSION['table'] = 'user';
-            $_SESSION['name'] = $ROW ['Fist_Name']. $ROW ['Larst_Name'];
+            $_SESSION['name'] = $row['First_Name'] . ' ' . $row['Last_Name'];
             header("Location: home.php");
             exit();
         }

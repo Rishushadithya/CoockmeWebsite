@@ -30,6 +30,10 @@ $sname=$_SESSION['name'] ;
             <button type="submit" id="searchbutton"><i class="fa fa-search"></i></button>
         </div>
 
+        <div class= "user-name" >
+            <?php echo $sname; ?>
+         </div>
+
         <div class="user-menu">
                 <img src="./icon/user.png" alt="User Icon" class="user-icon" onclick="toggleDropdown()">
                 <div class="dropdown">
@@ -40,8 +44,11 @@ $sname=$_SESSION['name'] ;
                         echo '<a href="moderator.php">Profile</a>';
                     }else if($stable=='creator'){    
                         echo '<a href="creator_profile.php">Profile</a>';  
-                    }else{
+                    }else if($stable=='user'){
                         echo '<a href="user.php">Profile</a>';
+                    }
+                    else{
+                        echo '<a href="login_index.php">Login</a>';
                     }
                     ?>
                    

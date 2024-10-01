@@ -1,5 +1,15 @@
 <?php
 require('config.php');
+session_start();
+
+// Check if the user is logged in, otherwise redirect to login
+if (!isset($_SESSION['loggedin'])) {
+    echo "<script>
+        function redirectToLogin() {
+            window.location.href = 'login_index.php';
+        }
+    </script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,27 +27,46 @@ require('config.php');
 <body>
 
     <div class="header">
-        <a href="home.php" class="logo">
+        <a href="index.php" class="logo">
             <img src="./icon/logo2.gif" alt="logo">
         </a>
+
+        <div class="search-bar">
+            <input id="search" type="text" placeholder="Search.." onclick="checkLoginStatus()">
+            <button type="submit" id="searchbutton" onclick="checkLoginStatus()"><i class="fa fa-search"></i></button>
+        </div>
         
         <div class="user-menu">
                 <img src="./icon/user.png" alt="User Icon" class="user-icon" onclick="toggleDropdown()">
                 <div class="dropdown">
                     <a href="login_index.php">Login</a>
-                    <a href="registationform.php">Sing Up</a>
+                    <a href="logout.php">Sing Up</a>
                 </div>	
             </div> 
     </div>
 
     <nav class="nav-bar">
-        <a href="#" class="nav-link">Home</a>
-        <a href="" class="nav-link">Category</a>
-        <a href="" class="nav-link">Contact Us</a>
-        <a href="" class="nav-link">Privacy Policy</a>
-        <a href="" class="nav-link">About Us</a>
-        <a href="" class="nav-link">Terms and Condition</a>
+        <a href="#" class="nav-link" onclick="checkLoginStatus()">Home</a>
+        <a href="#" class="nav-link" onclick="checkLoginStatus()">Category</a>
+        <a href="#" class="nav-link" onclick="checkLoginStatus()">Contact Us</a>
+        <a href="#" class="nav-link" onclick="checkLoginStatus()">Privacy Policy</a>
+        <a href="#" class="nav-link" onclick="checkLoginStatus()">About Us</a>
+        <a href="#" class="nav-link" onclick="checkLoginStatus()">Terms and Condition</a>
     </nav>
+
+    <script>
+        // Check if the user is logged in, if not, redirect to login page
+        function checkLoginStatus() {
+            <?php if (!isset($_SESSION['login'])) { ?>
+                redirectToLogin();
+            <?php } ?>
+        }
+
+        function redirectToLogin() {
+            window.location.href = 'login_index.php';
+        }
+    </script>
+
     <script src="./JS/header.js"></script>
 </body>
 </html>

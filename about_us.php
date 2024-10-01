@@ -10,18 +10,27 @@
 <?php    
     require_once 'header.php';
 ?>  
+<br>
     <div class="container">
     <div class="aboutus-image">
         <img src="./image/who.jpg" alt="About Us Image" >
     </div>
-
+    
     <div class="aboutus">
-        <h1>History of journey</h1>
-        <p>Our website is a cooking recipe website. We provide a wide range of recipes from different cuisines. We have a team of professional chefs who provide us with the best recipes. We have recipes for all types of meals, be it breakfast, lunch, or dinner. We also have a wide range of dessert recipes. Our website is user-friendly and easy to navigate. You can search for recipes by cuisine, meal type, or ingredients. You can also create an account on our website and save your favorite recipes. We also have a blog section where you can read interesting articles about food and cooking. We hope you enjoy our website and find it useful. Happy cooking!</p>
+        <h1>History of Our journey</h1>
+        <br>
+        <p>Our website is a cooking recipe website. We provide a wide range of recipes from different cuisines. 
+            We have a team of professional chefs who provide us with the best recipes. We have recipes for all types of meals, 
+            be it breakfast, lunch, or dinner. We also have a wide range of dessert recipes. Our website is user-friendly and easy to navigate. 
+            You can search for recipes by cuisine, meal type, or ingredients. You can also create an account on our website and save your 
+            favorite recipes. We also have a blog section where you can read interesting articles about food and cooking. We hope you enjoy 
+            our website and find it useful. Happy cooking!</p>
+            <br> <br>
     </div>
    
     <div class="team">
         <h1>Our Specialist</h1>
+        <br>
         <div class="team-member">
             <div class="member">
                 <img src="./image/chef1.jpg" alt="Chef 1">
@@ -45,6 +54,7 @@
 
     <div class="team">
         <h1>Our Team</h1>
+        <br>
         <div class="team-member">
             <div class="member">
                 <img src="./image/sf1.jpg" alt="Chef 1">
