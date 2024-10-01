@@ -37,15 +37,15 @@
 .user-menu { 
     position: relative;
     display: flex;
-    align-items: center;/* Center items vertically */
+    align-items: center;
+    margin-left: auto; /* Push the user menu to the right */
+    margin-right: 150px; /* Add some space to the right */
 }
 
 .user-icon {
-   
     width: 60px;
     height: 60px;
-    cursor: pointer;/* Cursor changes to pointer on hover */
-    padding-left: 300px;
+    cursor: pointer; /* Cursor changes to pointer on hover */
 }
 
 /* toggle drop down css */

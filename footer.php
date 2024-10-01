@@ -5,7 +5,7 @@
     <div class="footer-content">
         <div class="logo-container">
             <div class="logo">
-                <img src="./image/logo.jpg" alt="Logo">
+                <img src="./icon/1.png" alt="Logo">
             </div>
         </div>
         <div class="footer-links">
@@ -29,10 +29,10 @@
                 <div class="quick-links-columns">
                     <ul>
                         <li><a href="home.php">Home</a></li>
-                        <li><a href="AboutUs.php">About</a></li>
+                        <li><a href="about_us.php">About</a></li>
                     </ul>
                     <ul>
-                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="">Contact Us</a></li>
                         <li><a href="category.php">Category</a></li>
                     </ul>
                 </div>

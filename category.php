@@ -6,7 +6,6 @@
     <title>Category Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="./CSS/category.css">
-    
 </head>
 <body>
     <?php
@@ -18,42 +17,123 @@
             <div class="grid1">
                 <?php
                 require_once('config.php');
+                
+                
+                $cuisine = $_SESSION['cp'];
 
-                $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'chinese'";
+                $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = '$cuisine'";
                 $result = $con->query($sql);
-               
-
+                
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         echo '<article class="card">';
                         echo '<a href="recipe.php">';
-
-                        echo "<img src='data:image/jpg;base64," . base64_encode($row['Image']) . "' alt='Recipe Image'>";
-                       
-                        echo "<h3>" . $row["Recipe_Name"] . "</h3>";
-                        echo "<p>" . $row["Description"] . "</p>";
+                        echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
+                        echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
+                        echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
                         echo '</a>';
                         echo '</article>';
+                        $_SESSION['rid'] = '$row["Recipe_ID"]';
+
                     }
                 } else {
-                    echo "<p>No recipes found.</p>";
+                    echo "<p>No recipes.</p>";
                 }
                 ?>
             </div>
         </section>
-        
-        
 
 
+        <section class="section1" id="c2">
+            <h2>French Recipes</h2>
+            <div class="grid1">
+                <?php
+                require_once('config.php');
+                
+                $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'french'";
+                $result = $con->query($sql);
+                
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<article class="card">';
+                        echo '<a href="recipe.php">';
+                        echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
+                        echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
+                        echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
+                        echo '</a>';
+                        echo '</article>';
+                        $_SESSION['rid'] = '$row["Recipe_ID"]';
+                        
+                    }
+                } else {
+                    echo "<p>No recipes.</p>";
+                }
+                ?>
+            </div>
+        </section>
 
-        
+
+        <section class="section1" id="c3">
+            <h2>Chinese Recipes</h2>
+            <div class="grid1">
+                <?php
+                $_SESSION['cp']="chinese";
+
+                require_once('config.php');
+                
+                $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'chinese'";
+                $result = $con->query($sql);
+                
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<article class="card">';
+                        echo '<a href="recipe.php">';
+                        echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
+                        echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
+                        echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
+                        echo '</a>';
+                        echo '</article>';
+
+                        $_SESSION['rid'] = '$row["Recipe_ID"]';
+                    }
+                } else {
+                    echo "<p>No recipes.</p>";
+                }
+                ?>
+            </div>
+        </section>
+
+        <section class="section1" id="c4">
+            <h2>Japanese Recipes</h2>
+            <div class="grid1">
+                <?php
+                require_once('config.php');
+                
+                $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'japanese'";
+                $result = $con->query($sql);
+                
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<article class="card">';
+                        echo '<a href="recipe.php">';
+                        echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
+                        echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
+                        echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
+                        echo '</a>';
+                        echo '</article>';
+
+                        
+                        $_SESSION['rid'] = '$row["Recipe_ID"]';
+                    }
+                } else {
+                    echo "<p>No recipes.</p>";
+                }
+                ?>
+            </div>
+        </section>
     </div>
-
-
-
-
     <?php
-        include ('footer.php'); // Include footer of the page 
+        include ('footer.php'); // Include footer of the page
     ?>
 </body>
 </html>

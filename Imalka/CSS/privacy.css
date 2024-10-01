@@ -1,0 +1,32 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    margin: auto;
+    width: 80%;
+}
+
+h1 {
+    font-size: 35px;
+    color: darkblue;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+.content ol {
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.sub {
+    list-style-type: lower-alpha; 
+}
+
+li {
+    padding-bottom: 10px;
+}

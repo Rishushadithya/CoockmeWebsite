@@ -1,4 +1,4 @@
-
+0
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +9,7 @@
     <title>Home page</title>
 </head>
 <body>
-     <?php require_once('header.php'); ?> 
+     <?php require_once('header_index.php'); ?> 
 
     <main class="container">
         <div>
@@ -25,7 +25,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            font-size: 3vw; /* Changed from px to vw for responsiveness */
+            font-size: 3vw;
             animation: fadeIn 2s ease-in-out;
         }
         #welcome {
@@ -82,6 +82,16 @@
             <a href="./category.php" class="btn">See More</a>
         </section>
 
+        <section class="section why-register">
+            <h2>Why Register With Us?</h2>
+            <p>Registering with us unlocks a world of benefits designed to enhance your experience. 
+                As a member, you gain access to exclusive recipes, personalized meal plans, and tailored cooking tips that match your culinary preferences. 
+                Enjoy early access to special promotions and events, and receive our monthly newsletter filled with the latest cooking trends and inspirations. 
+                Plus, by registering, you can save your favorite recipes, create shopping lists, and join a community of fellow cooking enthusiasts. 
+                Don’t miss out—register today and start your culinary journey with us!</p>
+            <a href="#" class="btn">Register Now</a>
+        </section>
+
         <section class="section">
             <h2>Most Popular Collections</h2>
             <div class="slider">
@@ -99,7 +109,6 @@
                 <a href="#" class="slider-nav prev">&#10094;</a>
                 <a href="#" class="slider-nav next">&#10095;</a>
             </div>
-            <a href="" class="btn">See More</a>
         </section>
 
         <section class="section">
@@ -114,7 +123,6 @@
                     </article>
                 <?php endfor; ?>
             </div>
-            <a href="" class="btn">See More</a>
         </section>
 
         <section class="section">
@@ -129,15 +137,14 @@
                             <h3>Category Name</h3>
                         </article>
                     <?php endfor; ?>
-                  
                 </div>
                 <a href="#" class="slider-nav prev">&#10094;</a>
                 <a href="#" class="slider-nav next">&#10095;</a>
             </div>
-            <a href="" class="btn">See More</a>
         </section>
     </main>
 
     <?php require_once('footer.php'); ?>
+    <script src="./JS/index.js"></script>
 </body>
 </html>

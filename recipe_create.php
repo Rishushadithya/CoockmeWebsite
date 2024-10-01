@@ -67,6 +67,8 @@
             <input type="hidden" id="difficultyInput" name="difficulty" value="">
             <br>
              <button type="submit" name="submitBtn" id="submitBtn">Submit</button>
+            <!-- <button type="button" name="editBtn" id="editBtn">Edit</button>-->
+             
         </form>
     </div>
     <script src="./JS/recipe_create.js"></script>
