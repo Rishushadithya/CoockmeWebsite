@@ -1,74 +1,67 @@
 <?php
 // Include database configuration
-include 'config.php'; // Assuming this file contains your DB connection
 
+include 'config.php'; 
 session_start();
-
 if (isset($_POST['login'])) {
-    $email = $_POST['email'];
+
+    $username = $_POST['email'];
     $password = $_POST['password'];
 
-    // Check in User table
-    $user_query = "SELECT * FROM user WHERE email = ? LIMIT 1";
-    $stmt = $conn->prepare($user_query);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
+    $sql_admin = "SELECT * FROM admin WHERE Email='$username' AND Password='$password'";
+    $result_admin = $con->query($sql_admin);
 
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['role'] = 'user';
-        $_SESSION['user_id'] = $user['id'];
-        header("Location: user_dashboard.php");
+    $sql_moderator = "SELECT * FROM moderator WHERE Email='$username' AND Password='$password'";
+    $result_moderator = $con->query($sql_moderator);
+
+    $sql_user = "SELECT * FROM user WHERE Email='$username' AND Password='$password'";
+    $result_user = $con->query($sql_user);
+
+
+    if ($result_admin->num_rows > 0) {
+        $_SESSION['id'] = $ROW ['Admin_ID'];
+        $_SESSION['table'] = 'admin';
+        $_SESSION['name'] = $ROW ['Admin_Name'];
+        header("Location: home.php");
         exit();
     }
-
-    // Check in Admin table
-    $admin_query = "SELECT * FROM admin WHERE email = ? LIMIT 1";
-    $stmt = $conn->prepare($admin_query);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $admin = $result->fetch_assoc();
-
-    if ($admin && password_verify($password, $admin['password'])) {
-        $_SESSION['role'] = 'admin';
-        $_SESSION['admin_id'] = $admin['id'];
-        header("Location: admin_dashboard.php");
+    else if ($result_moderator->num_rows > 0) {    
+        $_SESSION['id'] = $ROW ['Moderator_ID'];
+        $_SESSION['table'] = 'moderator';
+        $_SESSION['name'] = $ROW ['Moderator_Name']; 
+        header("Location: home.php");
         exit();
     }
-
-    // Check in Moderator table
-    $moderator_query = "SELECT * FROM moderator WHERE email = ? LIMIT 1";
-    $stmt = $conn->prepare($moderator_query);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $moderator = $result->fetch_assoc();
-
-    if ($moderator && password_verify($password, $moderator['password'])) {
-        $_SESSION['role'] = 'moderator';
-        $_SESSION['moderator_id'] = $moderator['id'];
-        header("Location: moderator_dashboard.php");
+    else if ($result_user->num_rows > 0) {
+       
+       
+        $creatorid=$row["User_ID"];
+        $sql_creator= "SELECT * FROM creator WHERE User_ID = '$creatorid'";
+        $result_creator = $con->query($sql_creator);
+        
+        if ($result_creator->num_rows > 0) {    
+            $_SESSION['id'] = $ROW ['Moderator_ID'];
+            $_SESSION['table'] = 'creator';
+            $_SESSION['name'] = $ROW ['Fist_Name']. $ROW ['Larst_Name'];
+            header("Location: creator_dashboard.php");
+            exit();
+        }else{
+            $_SESSION['id'] = $ROW ['User_ID'];
+            $_SESSION['table'] = 'user';
+            $_SESSION['name'] = $ROW ['Fist_Name']. $ROW ['Larst_Name'];
+            header("Location: home.php");
+            exit();
+        }
+       
+    }   else {    
+        echo "<script>alert('Invalid username or password.')</script>";
+        echo "<script>window.open('login_index.php','_self')</script>";
+    
         exit();
-    }
+         }
 
-    // Check in Creator table
-    $creator_query = "SELECT * FROM creator WHERE email = ? LIMIT 1";
-    $stmt = $conn->prepare($creator_query);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $creator = $result->fetch_assoc();
-
-    if ($creator && password_verify($password, $creator['password'])) {
-        $_SESSION['role'] = 'creator';
-        $_SESSION['creator_id'] = $creator['id'];
-        header("Location: creator_dashboard.php");
-        exit();
-    }
-
-    // If no role matches, show an error
-    echo "Invalid email or password";
+}
+else{
+    echo "No data submitted.";
 }
 ?>

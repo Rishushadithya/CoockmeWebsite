@@ -15,10 +15,10 @@ if (isset($_POST["submitBtn"])) {
         $ptime = $_POST["PTime"];
         $cuisi = $_POST["cuisine"];
         $difficul = $_POST["difficulty"];
-        $pending = "pending";
+        $pending = "Pending";
         
         $stmt = $con->prepare("INSERT INTO recipe (Recipe_Name, Image, Description, Ingredients, Method, Serves, Prepare_Time, Cook_Time, Cuisine, Difficulty, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssissss", $tit, $imgContent, $descrip, $ingredi, $method, $serv, $ptime, $ctime, $cuisi, $difficul, $pending);
+        $stmt->bind_param("sssssiiisss", $tit, $imgContent, $descrip, $ingredi, $method, $serv, $ptime, $ctime, $cuisi, $difficul, $pending);
         
         if ($stmt->execute()) {
             echo "<script>alert('Recipe added successfully!');</script>";

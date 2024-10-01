@@ -20,6 +20,7 @@
                 
                 
                 $cuisine = $_SESSION['cp'];
+
                 $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = '$cuisine'";
                 $result = $con->query($sql);
                 
@@ -27,11 +28,13 @@
                     while($row = $result->fetch_assoc()) {
                         echo '<article class="card">';
                         echo '<a href="recipe.php">';
-                        echo '<img src="data:image/jpeg;base64,' . base64_encode($row['I mage']) . '" alt="Recipe Image">';
+                        echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
                         echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
                         echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
                         echo '</a>';
                         echo '</article>';
+                        $_SESSION['rid'] = '$row["Recipe_ID"]';
+
                     }
                 } else {
                     echo "<p>No recipes.</p>";
@@ -59,6 +62,8 @@
                         echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
                         echo '</a>';
                         echo '</article>';
+                        $_SESSION['rid'] = '$row["Recipe_ID"]';
+                        
                     }
                 } else {
                     echo "<p>No recipes.</p>";
@@ -88,6 +93,8 @@
                         echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
                         echo '</a>';
                         echo '</article>';
+
+                        $_SESSION['rid'] = '$row["Recipe_ID"]';
                     }
                 } else {
                     echo "<p>No recipes.</p>";
@@ -114,6 +121,9 @@
                         echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
                         echo '</a>';
                         echo '</article>';
+
+                        
+                        $_SESSION['rid'] = '$row["Recipe_ID"]';
                     }
                 } else {
                     echo "<p>No recipes.</p>";

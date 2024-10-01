@@ -10,32 +10,21 @@
 <body>
 
 <?php 
+    session_start();
     require_once('./headerRecipeCreate.php'); 
-    require_once('config.php'); // Your database connection
-
-    // Get recipe ID from URL parameter
-    if (isset($_GET['id'])) {
-        $recipe_id = $_GET['id'];
-        $sql = "SELECT * FROM recipe WHERE id = $recipe_id";
-        $result = $con->query($sql);
+    require_once('config.php'); 
+    $id =28;
         
-        if ($result->num_rows > 0) {
-            $recipe = $result->fetch_assoc();
-        } else {
-            echo "<p>Recipe not found.</p>";
-            exit;
-        }
-    } else {
-        echo "<p>No recipe selected.</p>";
-        exit;
-    }
+    $sql= "SELECT * FROM recipe WHERE Recipe_ID = 27";
+    $result_select = $con->query($sql);
+    $recipe = $result_select->fetch_assoc();
 ?>
     
 <div class="container">
     <h1>Edit Recipe</h1>
     <form id="recipeForm" action="./recipe_editHandler.php" method="post" enctype="multipart/form-data">
         <!-- Pass the recipe ID to the handler -->
-        <input type="hidden" name="recipe_id" value="<?php echo $recipe_id; ?>">
+        <input type="hidden" name="recipe_id" value="<?php echo htmlspecialchars($recipe['Creator_ID']);?>"> 
 
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($recipe['Recipe_Name']); ?>" required>
@@ -56,21 +45,21 @@
 
         <div id="time">
             <div>
-                <label for="servings">Servings:</label>
-                <input type="number" id="servings" name="servings" value="<?php echo htmlspecialchars($recipe['Servings']); ?>" required>
+                <label for="Servings">Servings:</label>
+                <input type="number" id="servings" name="servings" value="<?php echo htmlspecialchars($recipe['Serves']); ?>" required>
             </div>
             <div>
-                <label for="cookingTime">Cooking Time:</label>
-                <input type="text" id="cookingTime" name="PTime" value="<?php echo htmlspecialchars($recipe['Cooking_Time']); ?>" required>
+                <label for="Cooking_Time">Cooking Time:</label>
+                <input type="text" id="cookingTime" name="PTime" value="<?php echo htmlspecialchars($recipe['Prepare_Time']); ?>" required>
+                <span>Min</span> 
+            </div>
+            <div>
+                <label for="Preparing_Time">Preparing Time:</label>
+                <input type="text" id="preparingTime" name="CTime" value="<?php echo htmlspecialchars($recipe['Cook_Time']);?>" required>
                 <span>Min</span>
             </div>
             <div>
-                <label for="preparingTime">Preparing Time:</label>
-                <input type="text" id="preparingTime" name="CTime" value="<?php echo htmlspecialchars($recipe['Preparing_Time']); ?>" required>
-                <span>Min</span>
-            </div>
-            <div>
-                <label for="cuisine">Cuisine:</label>
+                <label for="Cuisine">Cuisine:</label>
                 <input type="text" id="cuisine" name="cuisine" value="<?php echo htmlspecialchars($recipe['Cuisine']); ?>" required>
             </div>
         </div>

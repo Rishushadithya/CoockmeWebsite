@@ -24,8 +24,8 @@ require('config.php');
         <div class="user-menu">
                 <img src="./icon/user.png" alt="User Icon" class="user-icon" onclick="toggleDropdown()">
                 <div class="dropdown">
-                    <a href="profile.php">Login</a>
-                    <a href="logout.php">Sing Up</a>
+                    <a href="login_index.php">Login</a>
+                    <a href="registationform.php">Sing Up</a>
                 </div>	
             </div> 
     </div>

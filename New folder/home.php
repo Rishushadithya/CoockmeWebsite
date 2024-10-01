@@ -1,4 +1,5 @@
-0
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
     <title>Home page</title>
 </head>
 <body>
-     <?php require_once('header_index.php'); ?> 
+     <?php require_once('header.php'); ?> 
 
     <main class="container">
         <div>
@@ -17,27 +18,26 @@
                 <img id="coverimage" src="./image/cover2.jpg" alt="cover" width="100%">
                 
                 <div class="welcome-message">
-    <h1 id="welcome">Welcome to Cook Me</h1>
-    <style>
-        .welcome-message {    
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 3vw;
-            animation: fadeIn 2s ease-in-out;
-        }
-        #welcome {
-            color: white;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
-</div>
-
+                    <h1 id="welcome">Welcome to Cook Me</h1>
+                <style>
+                    .welcome-message {    
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        color: white;
+                        font-size: 50px;
+                        animation: fadeIn 2s ease-in-out;
+                    }
+                    #welcome{
+                        color: white;
+                    }
+                    @keyframes fadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+                </style>
+                </div>
             </div>
         </div>
 
@@ -84,11 +84,7 @@
 
         <section class="section why-register">
             <h2>Why Register With Us?</h2>
-            <p>Registering with us unlocks a world of benefits designed to enhance your experience. 
-                As a member, you gain access to exclusive recipes, personalized meal plans, and tailored cooking tips that match your culinary preferences. 
-                Enjoy early access to special promotions and events, and receive our monthly newsletter filled with the latest cooking trends and inspirations. 
-                Plus, by registering, you can save your favorite recipes, create shopping lists, and join a community of fellow cooking enthusiasts. 
-                Don’t miss out—register today and start your culinary journey with us!</p>
+            <p>Explain the benefits of registration here...</p>
             <a href="#" class="btn">Register Now</a>
         </section>
 
@@ -145,6 +141,5 @@
     </main>
 
     <?php require_once('footer.php'); ?>
-    <script src="./JS/index.js"></script>
 </body>
 </html>

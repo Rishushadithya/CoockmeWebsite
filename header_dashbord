@@ -1,5 +1,11 @@
 <?php
+
 require('config.php');
+session_start();
+$sid=$_SESSION['id'] ;
+$stable=$_SESSION['table'];
+$sname=$_SESSION['name'] ;
+
 ?>
 
 <!DOCTYPE html>
