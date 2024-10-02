@@ -18,10 +18,39 @@
                 <?php
                 require_once('config.php');
                 
-                
-                $cuisine = $_SESSION['cp'];
 
-                $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = '$cuisine'";
+                // Add Recipe_ID to the query to avoid undefined key error
+                $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'italian'";
+                $result = $con->query($sql);
+                
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<article class="card">';
+                        // Use Recipe_ID in the href link
+                        echo '<a href="recipe_details.php?id='.$row['Recipe_ID'].'">';
+                        echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
+                        echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
+                        echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
+                        echo '</a>';
+                        echo '</article>';
+                        // Correctly store Recipe_ID in session
+                        $_SESSION['rid'] = $row["Recipe_ID"];
+                    }
+                } else {
+                    echo "<p>No recipes.</p>";
+                }
+                ?>
+            </div>
+        </section>
+
+        <section class="section1" id="c2">
+            <h2>French Recipes</h2>
+            <div class="grid1">
+                <?php
+                require_once('config.php');
+                
+                // Add Recipe_ID to the query
+                $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'french'";
                 $result = $con->query($sql);
                 
                 if ($result->num_rows > 0) {
@@ -33,8 +62,7 @@
                         echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
                         echo '</a>';
                         echo '</article>';
-                        $_SESSION['rid'] = '$row["Recipe_ID"]';
-
+                        $_SESSION['rid'] = $row["Recipe_ID"];
                     }
                 } else {
                     echo "<p>No recipes.</p>";
@@ -42,59 +70,29 @@
                 ?>
             </div>
         </section>
-
-
-        <section class="section1" id="c2">
-            <h2>French Recipes</h2>
-            <div class="grid1">
-                <?php
-                require_once('config.php');
-                
-                $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'french'";
-                $result = $con->query($sql);
-                
-                if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                        echo '<article class="card">';
-                        echo '<a href="recipe_details.php">';
-                        echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
-                        echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
-                        echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
-                        echo '</a>';
-                        echo '</article>';
-                        $_SESSION['rid'] = '$row["Recipe_ID"]';
-                        
-                    }
-                } else {
-                    echo "<p>No recipes.</p>";
-                }
-                ?>
-            </div>
-        </section>
-
 
         <section class="section1" id="c3">
             <h2>Chinese Recipes</h2>
             <div class="grid1">
                 <?php
-                $_SESSION['cp']="chinese";
+                $_SESSION['cp']="chinese"; // Manually setting cuisine
 
                 require_once('config.php');
                 
-                $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'chinese'";
+                // Add Recipe_ID to the query
+                $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'chinese'";
                 $result = $con->query($sql);
                 
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         echo '<article class="card">';
-                        echo '<a href="recipe_details.php">';
+                        echo '<a href="recipe_details.php?id='.$row['Recipe_ID'].'">';
                         echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
                         echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
                         echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
                         echo '</a>';
                         echo '</article>';
-
-                        $_SESSION['rid'] = '$row["Recipe_ID"]';
+                        $_SESSION['rid'] = $row["Recipe_ID"];
                     }
                 } else {
                     echo "<p>No recipes.</p>";
@@ -109,22 +107,20 @@
                 <?php
                 require_once('config.php');
                 
-                $sql = "SELECT Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'japanese'";
+                // Add Recipe_ID to the query
+                $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'japanese'";
                 $result = $con->query($sql);
                 
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
-                        
                         echo '<article class="card">';
-                        echo '<a href="recipe_details.php">';
+                        echo '<a href="recipe_details.php?id='.$row['Recipe_ID'].'">';
                         echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
                         echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
                         echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
                         echo '</a>';
                         echo '</article>';
-
-                        
-                        $_SESSION['rid'] = '$row["Recipe_ID"]';
+                        $_SESSION['rid'] = $row["Recipe_ID"];
                     }
                 } else {
                     echo "<p>No recipes.</p>";

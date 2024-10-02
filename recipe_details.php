@@ -7,94 +7,111 @@
     <link rel="stylesheet" href="CSS/recipe_details.css">
 </head>
 <body>
-    
     <header>
-    <?php require_once('header.php'); ?>
+        <?php require_once('header.php'); ?>
     </header>
 
     <main>
-
     <?php
+        require_once "config.php";
+ 
+        // Check if the 'id' parameter is set in the URL
+        if (isset($_GET['id'])) {
+            $recipe_id = intval($_GET['id']); // Get the Recipe_ID from the URL and convert to an integer
 
-    require_once "config.php";
-    $sql = "SELECT * FROM recipe"; //where Recipe_ID
+            // Fetch the recipe details based on Recipe_ID
+            $sql = "SELECT * FROM recipe WHERE Recipe_ID = ?";
+            $stmt = $con->prepare($sql);
+            $stmt->bind_param("i", $recipe_id); // Bind the Recipe_ID to the query
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-    $r = $con->query($sql);
-    if($r->num_rows>0)
-    {
-        while($row=$r->fetch_assoc()){
-            $recipe_name=$row['Recipe_Name'];
-            $description=$row['Description'];
-            $image=$row['Image'];
-            $difficulty=$row['Difficulty'];
-            $prepare_time=$row['Prepare_Time'];
-            $cook_time=$row['Cook_Time'];
-            $cuisine=$row['Cuisine'];
-            $serves=$row['Serves'];
-            $ingredients=$row['Ingredients'];
-            $method=$row['Method'];
-           
-        
-            echo"<div class='recipe-title'><h1>".htmlspecialchars($recipe_name)."</h1></div>";
-
-            echo"<div class='description'><p>".htmlspecialchars($cook_time)."</p> </div>";
-             
-            echo"<div class='recipe-images'><img src=".htmlspecialchars($image)." alt='Recipe Image'><br>";
-                   
-            echo"<div class='difficulty'></div>";
-           
-            echo"</div><p id ='d'>difficulty</p><div class='dif'>";
-           
-            $dif=htmlspecialchars($difficulty);
-                for($i=0;$i<$dif;++$i)
-                {
-                   echo"<input type='radio' name='rating' id='r' >
-                    <label for='r'>&#9733</label>";
+            // Check if the recipe exists
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $recipe_name = $row['Recipe_Name'];
+                    $description = $row['Description'];
+                    $image = $row['Image'];
+                    $difficulty = $row['Difficulty'];
+                    $prepare_time = $row['Prepare_Time'];
+                    $cook_time = $row['Cook_Time'];
+                    $cuisine = $row['Cuisine'];
+                    $serves = $row['Serves'];
+                    $ingredients = $row['Ingredients'];
+                    $method = $row['Method'];
                 }
-                
-                
-     
-               
-            
-
-            echo"</div>";
-                
-                echo"<div class='preptime'><p>Prep Time:".htmlspecialchars($prepare_time)."</p></div>"; 
-                echo"<div class='cooktime'><p>Cook Time:".htmlspecialchars($description)."</p></div>";
-                echo"<div class='cuisine'><p>Cuisine:".htmlspecialchars($cuisine)."</p></div>";
-                echo"<div><div class='serves'><p>Serves:".htmlspecialchars($serves)."</p><div>";
-
-               
-        
-               echo"<h2>Ingredients</h2>";
-           
-          
-               echo"<section class='ingredients'><ul>".htmlspecialchars($ingredients)."</ul></section>";
-        
-             
-                echo"<h2>Methode</h2>";
-                echo"<section class='Method'><p>".htmlspecialchars($method)."</p></section>";
-           
-
-    
-        }
-    }
-    else 
-    {
-    echo "No recipes found."; 
-    } 
-    $con->close();
-   
-
-
-
-
     ?>
-   
-     </main>
+
+    <div class="container">       
+        <form id="recipeForm" >
+
+          
+            <h1><?php echo htmlspecialchars($recipe_name); ?> </h1>
+
+            <img src="data:image/jpeg;base64,<?php echo base64_encode($image); ?>" alt="Recipe Image">
+
+           
+            <h2> <?php echo htmlspecialchars($description); ?></h2>
+
+            <label class="ingredients">Ingredients:</label>
+            <h3><?php echo htmlspecialchars($ingredients); ?> </h3>
+            
+            <label class="method">Method:</label>
+            <h3> <?php echo htmlspecialchars($method); ?></h3>
+
+            <div id="time">
+                <div>
+                    <label class="Servings">Servings:</label>
+                   <?php echo htmlspecialchars($serves); ?>
+                </div>
+                <div>
+                    <label class="Cooking_Time">Cooking Time:</label>
+                   <?php echo htmlspecialchars($prepare_time); ?>
+                    <span>Min</span> 
+                </div>
+                <div>
+                    <label class="Preparing_Time">Preparing Time:</label>
+                    <?php echo htmlspecialchars($cook_time);?>
+                    <span>Min</span>
+                </div>
+                <div>
+                    <label class="Cuisine">Cuisine:</label>
+                   <?php echo htmlspecialchars($cuisine); ?>
+                </div>
+            </div>
+            <br>            
+            <div class="stars" name="difficulty">
+                <span id="difficulty">Difficulty:</span> 
+                <?php
+                    for ($i = 1; $i <= 5; $i++) {
+                        $selected = ($i == $difficulty) ? 'style="color: gold;"' : '';
+                        echo '<span class="star" data-value="' . $i . '" ' . $selected . '>' . $i . '&#9733;</span>';
+                    }
+                ?>
+            </div>
+            <input type="hidden" id="difficultyInput" name="difficulty" value="<?php echo $difficulty; ?>">
+            
+            <br>
+            <button type="submit" name="submitBtn" id="submitBtn">Add </button>
+            <button type="submit" name="submitBtn" id="submitBtn">Download</button>
+        </form>
+    </div>
+                <?php
+            } else {
+                echo "<p>No recipe found.</p>";
+            }
+
+            // Close the database connection
+            $stmt->close();
+            $con->close();
+        } else {
+            echo "<p>Invalid recipe ID.</p>";
+        }
+    ?>
+    </main>
+
     <footer>
-       
-    <?php require_once('footer.php'); ?>
+        <?php require_once('footer.php'); ?>
     </footer>
 </body>
 </html>
