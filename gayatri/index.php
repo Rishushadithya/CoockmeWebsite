@@ -10,7 +10,7 @@
     <title>Home page</title>
 </head>
 <body>
-     <?php require_once('headerIndex.php'); ?> 
+     <?php require_once('header_index.php'); ?> 
      <br><br><br>
     <main class="container">
         <div>
