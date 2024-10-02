@@ -27,7 +27,7 @@
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         echo '<article class="card">';
-                        echo '<a href="recipe.php">';
+                        echo '<a href="recipe_details.php?id='.$row['Recipe_ID'].'">';
                         echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
                         echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
                         echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
@@ -56,7 +56,7 @@
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         echo '<article class="card">';
-                        echo '<a href="recipe.php">';
+                        echo '<a href="recipe_details.php">';
                         echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
                         echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
                         echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
@@ -87,7 +87,7 @@
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         echo '<article class="card">';
-                        echo '<a href="recipe.php">';
+                        echo '<a href="recipe_details.php">';
                         echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
                         echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
                         echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
@@ -114,8 +114,9 @@
                 
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
+                        
                         echo '<article class="card">';
-                        echo '<a href="recipe.php">';
+                        echo '<a href="recipe_details.php">';
                         echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
                         echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
                         echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";

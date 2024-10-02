@@ -33,7 +33,7 @@ include('config.php');
         <label for="remember-me">Remember me</label>
       </div>
       <button type="submit" name="login">Log in</button>
-      <a href="forgot-password">Forgot your password?</a>
+      <a href="forget_password.php">Forgot your password?</a>
       <span>Not a Member ?<a href="login_index"> Click here to Register </a></span>
     </form>
   </div>

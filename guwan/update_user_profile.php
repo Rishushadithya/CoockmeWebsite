@@ -1,7 +1,7 @@
 <?php
 
 // Database connection
-require 'cookmeconnect.php';
+require 'config.php';
 
 if (isset($_POST["update"])) {
     $userid=$_POST["userid"];
@@ -17,7 +17,7 @@ if (isset($_POST["update"])) {
     }
     else{
       $sql="UPDATE user SET First_Name='$firstName', Last_Name='$lastName', Email='$email', Country='$country', Contact_Number='$mobile' Where User_ID='$userid' ";
-        if($cook->query($sql))
+        if($con->query($sql))
         {
             echo"<h1>Successfully Updated<h1>";
         }
@@ -31,7 +31,7 @@ if (isset($_POST["update"])) {
 
 
 }
-$cook->close();
+$con->close();
 
 ?>
 

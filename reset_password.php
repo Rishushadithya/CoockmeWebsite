@@ -51,7 +51,7 @@
 
 <?php
 // Database connection
-require 'cookmeconnect.php';
+require 'config.php';
 
 
 if (isset($_POST["update"])) {
@@ -62,9 +62,12 @@ if (isset($_POST["update"])) {
     {
         if($confirmPassword==$newPassword)
         {
-            
-        $sql="UPDATE user SET  Password='$newPassword'";
-            if($cook->query($sql))
+        
+            session_start();
+            $fake_email=$_SESSION['email'];
+
+        $sql="UPDATE user SET  Password='$newPassword' WHERE Email='$fake_email'";
+            if($con->query($sql))
             {
             echo"<h1>Successfully Updated<h1>";
             }
@@ -78,7 +81,7 @@ if (isset($_POST["update"])) {
 
 
 }
-$cook->close();
+$con->close();
 
 ?>
 

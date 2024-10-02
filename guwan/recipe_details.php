@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe View</title>
-    <link rel="stylesheet" href="recipe details.css">
+    <link rel="stylesheet" href="CSS/recipe details.css">
 </head>
 <body>
     
@@ -16,8 +16,9 @@
 
     <?php
 
-    require_once "cookmeconnect.php";
-    $sql = "SELECT Recipe_Name,Description,Image,Prepare_Time,Cook_Time,Cuisine,Serves,Ingredients,Method,Difficulty FROM recipe"; //where Recipe_ID
+    require_once "config.php";
+    $sql = "SELECT * FROM recipe"; //where Recipe_ID
+    $r = $con->query($sql);
     if($r->num_rows>0)
     {
         while($row=$r->fetch_assoc()){
@@ -81,7 +82,7 @@
     {
     echo "No recipes found."; 
     } 
-    $cook->close();
+    $con->close();
    
 
 

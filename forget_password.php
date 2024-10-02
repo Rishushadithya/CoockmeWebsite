@@ -48,14 +48,17 @@
         <input id="new" type="submit" name="submit" value="submit">
     </form>
     <?php
-    require "cookmeconnect.php";
+    require "config.php";
     $fake_email=$_POST["email"]??'';
+
+    session_start();
+    $_SESSION['email']=$fake_email;
      
     if(isset($_POST["submit"]))
     {
   
     $sql = "SELECT Email FROM user ";
-    $result = $cook->query($sql); 
+    $result = $con->query($sql); 
     if ($result->num_rows > 0) {
         // Output data of each row
         while($row = $result->fetch_assoc()) {
@@ -64,7 +67,7 @@
             if($true_email==$fake_email)
             {
                 
-                header("location: reset password.php?");
+                header("location: reset_password.php?");
 
             }
          
@@ -76,7 +79,7 @@
     }
     }
 
-    $cook->close();
+    $con->close();
     ?>
 
     <br><br>

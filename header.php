@@ -39,14 +39,16 @@ $sname=$_SESSION['name'] ;
                 <div class="dropdown">
                     <?php
                     if($stable=='admin'){
+                        echo '<a href="admin_dashboard.php">Dashboard</a>';
                         echo '<a href="admin.php">Profile</a>';
                     }else if($stable=='moderator'){
+                        echo '<a href="moderator_dashboard.php">Dashboard</a>';
                         echo '<a href="moderator.php">Profile</a>';
                     }else if($stable=='creator'){    
                         echo '<a href="creator_dashboard.php">Dashboard</a>';
                         echo '<a href="creator_profile.php">Profile</a>';  
                     }else if($stable=='user'){
-                        echo '<a href="user.php">Profile</a>';
+                        echo '<a href="user_profile.php">Profile</a>';
                     }
                     else{
                         echo '<a href="login_index.php">Login</a>';
