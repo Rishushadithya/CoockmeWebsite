@@ -22,14 +22,14 @@ if (isset($_POST['login'])) {
         $_SESSION['id'] = $ROW ['Admin_ID'];
         $_SESSION['table'] = 'admin';
         $_SESSION['name'] = $ROW ['Admin_Name'];
-        header("Location: home.php");
+        header("Location: admin_dashboard.php");
         exit();
     }
     else if ($result_moderator->num_rows > 0) {    
         $_SESSION['id'] = $ROW ['Moderator_ID'];
         $_SESSION['table'] = 'moderator';
         $_SESSION['name'] = $ROW ['Moderator_Name']; 
-        header("Location: home.php");
+        header("Location: moderator_dashboard.php");
         exit();
     }
     else if ($result_user->num_rows > 0) {

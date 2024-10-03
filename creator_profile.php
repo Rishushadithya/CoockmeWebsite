@@ -104,7 +104,7 @@
                 <label for="currentWork">Current Work:</label>
                 <input type="text" id="currentWork" name="currentWork" value="<?php echo $work; ?>">
 
-                <button type="submit" name="update">Update</button>
+                <button type="submit" name="update">Update</button> <button type="submit" name="delete">Delete</button>
             </div>
         </form>
     </div>

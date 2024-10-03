@@ -27,10 +27,23 @@ if (isset($_POST["update"])) {
         }
 
     }
-
-
-
 }
+
+if (isset($_POST["delete"])) {
+    
+    $userid=$_POST["userid"];
+    $sql="DELETE FROM user WHERE User_ID='$userid'";
+    if($con->query($sql))
+    {
+        echo"<h1>Successfully Deleted<h1>";
+    }
+    else
+    {
+        echo"not Deleted";
+    }
+    
+}
+
 $con->close();
 
 ?>
