@@ -1,9 +1,22 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-require 'cookmeconnect.php';
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="CSS/user_profile.css">
+</head>
 
-$sql = "SELECT * FROM user";
-$result = $cook->query($sql);
+<body>
+    <header>
+        <?php require_once('header.php'); ?>
+    </header>
+
+    <?php
+$sql = "SELECT * FROM user WHERE User_ID = '$sid' ";
+$result = $con->query($sql);
 
 if ($result->num_rows > 0) {
     // Output data of each row
@@ -18,26 +31,8 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-
-
-$cook->close();
-
+$con->close();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="user_profile.css">
-</head>
-
-<body>
-    <header>
-        <?php require_once('header.php'); ?>
-    </header>
     <br><br>
     <h1>Edit user Profile</h1>
 

@@ -30,7 +30,7 @@ if (isset($_POST['recipe_id'])) {
 
     if ($stmt->execute()) {
         // Redirect back to the category page or a success message
-        header("Location: category.php?message=Recipe updated successfully");
+        header("Location: creator_dashboard.php?message=Recipe updated successfully");
         exit();
     } else {
         echo "Error: " . $stmt->error;

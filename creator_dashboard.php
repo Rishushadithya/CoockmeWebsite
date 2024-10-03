@@ -90,9 +90,9 @@
                 $filter = isset($_GET['filter']) ? $_GET['filter'] : 'All';
 
                 if ($filter == 'All') {
-                    $query = "SELECT Recipe_Name, Status, Cuisine FROM recipe WHERE Creator_ID = '$sid'";
+                    $query = "SELECT Recipe_ID, Recipe_Name, Status, Cuisine FROM recipe WHERE Creator_ID = '$sid'";
                 } else {
-                    $query = "SELECT Recipe_Name, Status, Cuisine FROM recipe WHERE Status = '$filter' AND Creator_ID = '$sid'";
+                    $query = "SELECT Recipe_ID, Recipe_Name, Status, Cuisine FROM recipe WHERE Status = '$filter' AND Creator_ID = '$sid'";
                 }
 
                 $result = mysqli_query($con, $query);
@@ -114,17 +114,21 @@
                         if ($result->num_rows > 0) {
                             // output data of each row
                             while ($row = mysqli_fetch_assoc($result)) {
+
                                 echo "<tr>
                                 <td>".$row["Recipe_Name"]."</td>
                                 <td>".$row["Status"]."</td>
                                 <td>".$row["Cuisine"]."</td>
 
-                                <td><a href='#'>Edit</a> | <a href='#'>Delete</a></td>
+                                <td><a href='recipe_edit.php'>Edit</a> | <a href='recipe_delete.php'>Delete</a></td>
                                 </tr>";
+                                $_SESSION['editID'] = $row['Recipe_ID'];
+                                
                             }
                         } else {
                             echo "<tr><td colspan='4'>No results found!</td></tr>";
                         }
+                       
                     ?>
 
                 </table>
@@ -141,6 +145,8 @@
         function filterRecipes(status) {
             window.location.href = 'creator_dashboard.php?filter=' + status;
         }
+        
+
     </script>
 
 </body>

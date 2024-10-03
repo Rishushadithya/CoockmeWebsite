@@ -1,28 +1,3 @@
-<?php
-
-require 'cookmeconnect.php';
-
-$sql = "SELECT * FROM user";
-$result = $cook->query($sql);
-
-if ($result->num_rows > 0) {
-    // Output data of each row
-    while($row = $result->fetch_assoc()) {
-        $userid=$row["User_ID"];
-        $fname = $row["First_Name"];
-        $lname = $row["Last_Name"];
-        $email = $row["Email"];
-        $country = $row["Country"];
-        $mobile = $row["Contact_Number"];
-    }
-} else {
-    echo "0 results";
-}
-
-
-$cook->close();
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,6 +13,26 @@ $cook->close();
     <header>
         <?php require_once('header.php'); ?>
     </header>
+
+    <?php
+$sql = "SELECT * FROM user WHERE User_ID = '$sid' ";
+$result = $con->query($sql);
+
+if ($result->num_rows > 0) {
+    // Output data of each row
+    while($row = $result->fetch_assoc()) {
+        $userid=$row["User_ID"];
+        $fname = $row["First_Name"];
+        $lname = $row["Last_Name"];
+        $email = $row["Email"];
+        $country = $row["Country"];
+        $mobile = $row["Contact_Number"];
+    }
+} else {
+    echo "0 results";
+}
+$con->close();
+?>
     <br><br>
     <h1>Edit user Profile</h1>
 
