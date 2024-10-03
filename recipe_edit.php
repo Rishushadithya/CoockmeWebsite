@@ -14,7 +14,11 @@
     require_once('./headerRecipeCreate.php'); 
     require_once('config.php'); 
     $id = $_SESSION['editID'];
-        
+
+    if (isset($_GET['id'])) {
+        $id = intval($_GET['id']);
+    }
+    
     $sql= "SELECT * FROM recipe WHERE Recipe_ID = '$id'";
     $result_select = $con->query($sql);
     $recipe = $result_select->fetch_assoc();

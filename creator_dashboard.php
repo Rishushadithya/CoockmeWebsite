@@ -39,7 +39,6 @@
     $pending_recipes = mysqli_fetch_assoc($pending_recipes_result)['total'];
     $rejected_recipes = mysqli_fetch_assoc($rejected_recipes_result)['total'];
 
-    
     ?>
 
     <div class="container">
@@ -47,7 +46,7 @@
         <div class="sidebar">
             <h1>Creator Dashboard</h1>
                 <div class="list">
-                    <h3>My Recipes</h3>
+                    <h3 id="no1">My Recipes</h3>
                     
                     <select onchange="filterRecipes(this.value)">
                         <option>Select</option>
@@ -57,16 +56,10 @@
                         <option value="Rejected">Rejected</option>
                     </select>
                 </div>
-                <div class="notifications">
-                    <h3>Notifications</h3>
-                    <ul>
-                        <li><a href="#">Notification 1</a></li>
-                        <li><a href="#">Notification 2</a></li>
-                        <li><a href="#">Notification 3</a></li>
-                    </ul>
-                </div>
-                <div class="dropdown">
-                    <h3>Settings</h3>
+                
+
+                <div class="list">
+                    <h3 id="no2">Settings</h3>
                     <ul id="settings">
                         <li><a href="creator_profile.php">Profile</a></li>
                     </ul>
@@ -108,8 +101,6 @@
                     </tr>
 
                     <?php
-                        // Database connection
-                        
 
                         if ($result->num_rows > 0) {
                             // output data of each row
@@ -118,15 +109,26 @@
                                 echo "<tr>
                                 <td>".$row["Recipe_Name"]."</td>
                                 <td>".$row["Status"]."</td>
-                                <td>".$row["Cuisine"]."</td>
-
-                                <td><a href='recipe_edit.php'>Edit</a> | <a href='recipe_delete.php'>Delete</a></td>
-                                </tr>";
+                                <td>".$row["Cuisine"]."</td>";
+                                echo "<td><a href='recipe_edit.php?id=" . $row['Recipe_ID'] . "'>Edit</a> | <a href='creator_dashboard.php?delete=" . $row['Recipe_ID'] . "'>Delete</a></td>";
+                                echo "</tr>";
                                 $_SESSION['editID'] = $row['Recipe_ID'];
                                 
                             }
                         } else {
                             echo "<tr><td colspan='4'>No results found!</td></tr>";
+                        }
+
+                        if (isset($_GET['delete'])) {
+                            $id = intval($_GET['delete']);
+
+                            $sql = "DELETE FROM recipe WHERE Recipe_ID='$id'";
+                            if (mysqli_query($con, $sql)) { 
+                                echo "<script>alert('Product deleted successfully!');</script>";
+                    
+                            } else {
+                                echo "<script>alert('Error deleting product: " . mysqli_error($con) . "');</script>";
+                            }
                         }
                        
                     ?>

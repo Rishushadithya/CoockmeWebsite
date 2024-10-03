@@ -62,9 +62,7 @@ $con->close();
                 <label for="mobile">Mobile Number:</label>
                 <input type="tel" id="mobile" name="mobile" value="<?php echo $mobile; ?>">
 
-                <input type="submit" name="update" value="Update" id="new">
-            
-                
+                <input type="submit" name="update" value="Update" id="new"> <input type="submit" name="delete" value="Delete" id="new">
             </div>
         </form>
     </div>

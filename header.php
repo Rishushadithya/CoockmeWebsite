@@ -43,7 +43,7 @@ $sname=$_SESSION['name'] ;
                         echo '<a href="admin.php">Profile</a>';
                     }else if($stable=='moderator'){
                         echo '<a href="moderator_dashboard.php">Dashboard</a>';
-                        echo '<a href="moderator.php">Profile</a>';
+                        echo '<a href="moderator_profile.php">Profile</a>';
                     }else if($stable=='creator'){    
                         echo '<a href="creator_dashboard.php">Dashboard</a>';
                         echo '<a href="creator_profile.php">Profile</a>';  
