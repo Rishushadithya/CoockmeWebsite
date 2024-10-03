@@ -9,6 +9,9 @@
 </head>
 
 <body>
+<?php
+        require_once ('header.php'); // Include header of the page
+    ?>
     <h1>Cookme Terms and Conditions</h1>
     <p>These terms and conditions of use apply to consumers of this website. Additional terms specific to myfoodbook partners and other commercial arrangements may apply to certain users. Please contact us directly for these additional terms.</p>
     <h1>Your agreement with us</h1>
@@ -153,5 +156,8 @@
             <li>These terms are governed by and construed in accordance with the laws of Victoria, Australia and you agree to submit to the jurisdiction of the Courts of Victoria.</li>
         </ul>
 
+        <?php
+        include ('footer.php'); // Include footer of the page
+    ?>
 </body>
 </html>
