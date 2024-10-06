@@ -34,7 +34,7 @@ include('config.php');
       </div>
       <button type="submit" name="login">Log in</button>
       <a href="forget_password.php">Forgot your password?</a>
-      <span>Not a Member ?<a href="login_index"> Click here to Register </a></span>
+      <span>Not a Member ?<a href="registation_form.php"> Click here to Register </a></span>
     </form>
   </div>
 </body>
