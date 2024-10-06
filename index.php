@@ -89,7 +89,7 @@
                 Enjoy early access to special promotions and events, and receive our monthly newsletter filled with the latest cooking trends and inspirations. 
                 Plus, by registering, you can save your favorite recipes, create shopping lists, and join a community of fellow cooking enthusiasts. 
                 Don’t miss out—register today and start your culinary journey with us!</p>
-            <a href="#" class="btn">Register Now</a>
+            <a href="registation_form.php" class="btn">Register Now</a>
         </section>
 
         <section class="section">
