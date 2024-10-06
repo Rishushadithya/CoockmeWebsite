@@ -11,8 +11,8 @@
 
 <?php 
     session_start();
-    require_once('./headerRecipeCreate.php'); 
-    require_once('config.php'); 
+    require_once('header.php'); 
+    
     $id = $_SESSION['editID'];
 
     if (isset($_GET['id'])) {

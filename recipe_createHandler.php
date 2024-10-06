@@ -1,4 +1,6 @@
 <?php
+session_start();
+$cid=$_SESSION['id'] ;
 require_once('config.php');
 
 if (isset($_POST["submitBtn"])) {
@@ -17,11 +19,13 @@ if (isset($_POST["submitBtn"])) {
         $difficul = $_POST["difficulty"];
         $pending = "Pending";
         
-        $stmt = $con->prepare("INSERT INTO recipe (Recipe_Name, Image, Description, Ingredients, Method, Serves, Prepare_Time, Cook_Time, Cuisine, Difficulty, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssssiiisss", $tit, $imgContent, $descrip, $ingredi, $method, $serv, $ptime, $ctime, $cuisi, $difficul, $pending);
+        $stmt = $con->prepare("INSERT INTO recipe (Recipe_Name, Creator_ID, Image, Description, Ingredients, Method, Serves, Prepare_Time, Cook_Time, Cuisine, Difficulty, Status) VALUES (? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sissssiiisss", $tit, $cid, $imgContent, $descrip, $ingredi, $method, $serv, $ptime, $ctime, $cuisi, $difficul, $pending);
         
         if ($stmt->execute()) {
             echo "<script>alert('Recipe added successfully!');</script>";
+            header("Location: creator_profile.php");
+
         } else {
             echo "<script>alert('Error adding recipe: " . $stmt->error . "');</script>";
         }
