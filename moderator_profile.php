@@ -16,7 +16,7 @@
 
     <?php
     $cid=$_SESSION['id'];
-$sql= "SELECT * FROM moderator WHERE Moderator_ID  ";
+$sql= "SELECT * FROM moderator WHERE Moderator_ID='$cid' ";
 $result = $con->query($sql);
 
 if ($result->num_rows > 0) {
@@ -54,7 +54,7 @@ $con->close();
                 <input type="email" id="email" name="email" value="<?php echo $email; ?>">
 
                 <button type="submit" name="update"  id="new">Update</button>
-                <button type="submit" name="update"  id="delete" >Delete</button>
+                <button type="submit" name="delete"  id="delete" >Delete</button>
             
                 
             </div>

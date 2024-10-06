@@ -6,6 +6,6 @@ $con = new mysqli("localhost","root","","cookme");
 
  }
  else{
-    echo "you can fill sucessful";
+   
  }
 ?>

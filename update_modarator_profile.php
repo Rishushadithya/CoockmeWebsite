@@ -13,10 +13,11 @@ if (isset($_POST["update"])) {
         echo"All required";
     }
     else{
-      $sql="UPDATE moderator SET Moderator_Name='$mname', Email='$email'WHERE Moderator_ID='Mid'";
+      $sql="UPDATE moderator SET Moderator_Name='$mname', Email='$email' WHERE Moderator_ID='$mid'";
         if($con->query($sql))
         {
-            echo"<h1>Successfully Updated<h1>";
+            header("location:moderator_profile.php");
+            echo"<script>alert('Successfully Updated')</script>";
         }
         else
         {
@@ -25,11 +26,32 @@ if (isset($_POST["update"])) {
 
     }
 
-
-
 }
+
+    if (isset($_POST["delete"])) {
+        $mid=$_POST['Mid']??'';
+       
+          $sql="DELETE FROM moderator WHERE Moderator_ID='$mid'";
+            if($con->query($sql))
+            {
+                echo"<script>alert('Successfully deleted')</script>";
+                header("location:index.php");
+                
+            }
+            else
+            {
+                echo"not deleted contact admin";    
+            }
+    
+        }
+
+
+
+
 $con->close();
 
 ?>
+
+
 
 

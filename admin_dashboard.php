@@ -73,8 +73,8 @@
                     <h3>Accounts</h3>
                     <select onchange="filterUSer(this.value)">
                         <option>Select</option>
-                        <option value="">All</option>
-                        <option value="creator">Creators</option>
+                        <option value="all">All</option>
+                        <option value="creator">Moderator</option>
                         <option value="user">User</option>
                     </select>
                 </div>
@@ -84,7 +84,7 @@
                     <li><a href="creator_profile.php">Profile</a></li>
                 </ul>
             </div>
-            <button class="create-post"><a href="recipe_create.php">+ Create a Recipe</a></button>
+            
         </div>
 
         <!-- Main Content -->
@@ -112,7 +112,8 @@
             $result1 = mysqli_query($con, $query1);
             ?>
 
-            <div class="table-section">
+            <div class="table-section" >
+                <div id="tbl_rec">
                 <h2>Recipes</h2>
                 <table>
                     <tr>
@@ -128,7 +129,7 @@
                                 <td>".$rows["Recipe_Name"]."</td>
                                 <td>".$rows["Status"]."</td>
                                 <td>".$rows["Cuisine"]."</td>";
-                            echo "<td><a href='recipe_edit.php?id=" . $rows['Recipe_ID'] . "'>Edit</a> | <a href='creator_dashboard.php?delete=" . $rows['Recipe_ID'] . "'>Delete</a></td>";
+                            echo "<td><a href='recipe_edit.php?id=" . $rows['Recipe_ID'] . "'>Edit</a> | <a href='creator_dashboard.php?delete=" . $rows['Recipe_ID'] . "' onclick='return confirmDelete()'>Delete</a></td>";
                             echo "</tr>";
                             $_SESSION['editID'] = $rows['Recipe_ID'];
                         }
@@ -147,9 +148,12 @@
                     }
                     ?>
                 </table>
-
+                </div>
+                <div id="user">
+                    
+                
                 <h2>Users</h2>
-                <table>
+                <table >
                     <tr>
                         <th>Name</th>
                         <th>Country</th>
@@ -172,7 +176,7 @@
                                 } else {
                                     echo "<td>User</td>";
                                 }
-                            echo "<td><a href='admin_dashboard.php?delete_user=" . $row['User_ID'] . "'>Delete</a></td>";
+                            echo "<td><a href='admin_dashboard.php?delete_user=" . $row['User_ID'] . "' onclick='return confirmDelete()'>Delete</a></td>";
                             echo "</tr>";
                         }
                     } else {
@@ -190,9 +194,12 @@
                     }
                     ?>
                 </table>
-
-                <h2>Moderators</h2>
-                <table>
+                </div>
+                <div id="creator">
+                    <h2>Moderators</h2>
+             
+                
+                <table >
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
@@ -204,7 +211,7 @@
                             echo "<tr>
                                 <td>".$row["Moderator_Name"]."</td>
                                 <td>".$row["Email"]."</td>";
-                            echo "<td><a href='admin_dashboard.php?delete_moderator=" . $row['Moderator_ID'] . "'>Delete</a></td>";
+                            echo "<td><a href='admin_dashboard.php?delete_moderator=" . $row['Moderator_ID'] . "' onclick='return confirmDelete()'>Delete</a></td>";
                             echo "</tr>";
                         }
                     } else {
@@ -223,6 +230,7 @@
                     
                     ?>
                 </table>
+                   </div>
                 <br><br><br>
                 <button>add moderator</button>
             </div>
@@ -237,6 +245,31 @@
         function filterRecipes(status) {
             window.location.href = 'admin_dashboard.php?filter=' + status;
         }
+
+        function filterUSer(status){
+            if(status == "all"){
+                document.getElementById("creator").style.display = "block";
+                document.getElementById("user").style.display = "block";
+                document.getElementById("tbl_rec").style.display = "none";
+            }else if(status == "creator"){
+                document.getElementById("creator").style.display = "block";
+                document.getElementById("user").style.display = "none";
+                document.getElementById("tbl_rec").style.display = "none";
+            }else if(status == "user"){
+                document.getElementById("creator").style.display = "none";
+                document.getElementById("user").style.display = "block";
+                document.getElementById("tbl_rec").style.display = "none";
+            }else{
+                document.getElementById("creator").style.display = "none";
+                document.getElementById("user").style.display = "none";
+                document.getElementById("tbl_rec").style.display = "block";
+                
+            }
+        }
+
+        function confirmDelete() {
+    return confirm("Are you sure you want to delete this record?");
+  }
     </script>
 </body>
 </html>

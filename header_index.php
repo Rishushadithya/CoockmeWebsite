@@ -1,6 +1,4 @@
 <?php
-require('config.php');
-session_start();
 
 // Check if the user is logged in, otherwise redirect to login
 if (!isset($_SESSION['loggedin'])) {
@@ -49,9 +47,9 @@ if (!isset($_SESSION['loggedin'])) {
         <a href="#" class="nav-link" onclick="checkLoginStatus()">Home</a>
         <a href="#" class="nav-link" onclick="checkLoginStatus()">Category</a>
         <a href="#" class="nav-link" onclick="checkLoginStatus()">Contact Us</a>
-        <a href="#" class="nav-link" onclick="checkLoginStatus()">Privacy Policy</a>
-        <a href="#" class="nav-link" onclick="checkLoginStatus()">About Us</a>
-        <a href="#" class="nav-link" onclick="checkLoginStatus()">Terms and Condition</a>
+        <a href="privacy.php" class="nav-link" >Privacy Policy</a>
+        <a href="about_us.php" class="nav-link" >About Us</a>
+        <a href="terms_and_con.php" class="nav-link" >Terms and Condition</a>
     </nav>
 
     <script>

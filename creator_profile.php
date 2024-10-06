@@ -65,7 +65,7 @@
     <h1>Profile</h1>
 
     <div class="profile-container">
-        <form id="profileForm" action="update_profile.php" method="post" enctype="multipart/form-data">
+        <form id="profileForm" action="update_creator_profile.php" method="post" enctype="multipart/form-data">
             <div class="profile-picture">
                 Profile Picture <br><br>
                 <?php echo $propic; ?>

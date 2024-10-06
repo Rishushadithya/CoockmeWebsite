@@ -19,16 +19,18 @@ if (isset($_POST['login'])) {
 
 
     if ($result_admin->num_rows > 0) {
-        $_SESSION['id'] = $ROW ['Admin_ID'];
+        $row_admin = $result_admin->fetch_assoc();
+        $_SESSION['id'] = $row_admin['Admin_ID'];
         $_SESSION['table'] = 'admin';
-        $_SESSION['name'] = $ROW ['Admin_Name'];
+        $_SESSION['name'] = $row_admin['Admin_Name'];
         header("Location: admin_dashboard.php");
         exit();
     }
-    else if ($result_moderator->num_rows > 0) {    
-        $_SESSION['id'] = $ROW ['Moderator_ID'];
+    else if ($result_moderator->num_rows > 0) {  
+        $row_moderator = $result_moderator->fetch_assoc();  
+        $_SESSION['id'] = $row_moderator['Moderator_ID'];
         $_SESSION['table'] = 'moderator';
-        $_SESSION['name'] = $ROW ['Moderator_Name']; 
+        $_SESSION['name'] = $row_moderator['Moderator_Name']; 
         header("Location: moderator_dashboard.php");
         exit();
     }

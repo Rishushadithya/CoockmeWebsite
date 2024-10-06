@@ -17,14 +17,16 @@ if (isset($_POST["update"])) {
     }
     else{
       $sql="UPDATE user SET First_Name='$firstName', Last_Name='$lastName', Email='$email', Country='$country', Contact_Number='$mobile' Where User_ID='$userid' ";
-        if($con->query($sql))
-        {
-            echo"<h1>Successfully Updated<h1>";
-        }
-        else
-        {
-            echo"not Updated";
-        }
+      if($con->query($sql))
+      {
+          echo"<script>alert('Successfully Updated')</script>";
+          header("location:user_profile.php");
+          
+      }
+      else
+      {
+        echo"<script>alert('Sorry Contact admin..')</script>";
+      }
 
     }
 }
@@ -35,11 +37,13 @@ if (isset($_POST["delete"])) {
     $sql="DELETE FROM user WHERE User_ID='$userid'";
     if($con->query($sql))
     {
-        echo"<h1>Successfully Deleted<h1>";
+        echo"<script>alert('Successfully deleted')</script>";
+        header("location:index.php");
+        
     }
     else
     {
-        echo"not Deleted";
+        echo"not deleted contact admin";    
     }
     
 }

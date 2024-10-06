@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<?php require_once('./headerRecipeCreate.php'); ?>
+<?php require_once('header.php'); ?>
     
 <div class="container">
         <h1>Create Recipe</h1>
@@ -67,7 +67,6 @@
             <input type="hidden" id="difficultyInput" name="difficulty" value="">
             <br>
              <button type="submit" name="submitBtn" id="submitBtn">Submit</button>
-            <!-- <button type="button" name="editBtn" id="editBtn">Edit</button>-->
              
         </form>
     </div>
