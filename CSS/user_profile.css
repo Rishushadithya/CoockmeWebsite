@@ -27,7 +27,7 @@ body {
     border-radius: 5px;
 }
 
-button,#new {
+button,#new1 {
     width: 100%;
     padding: 10px;
     margin: 10px;
@@ -39,8 +39,24 @@ button,#new {
     font-size: large;
 }
 
-#new:hover,button:hover {
+#new1:hover,button:hover {
     background-color: #0056b3;
+}
+
+button,#new2 {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+}
+
+#new2:hover,button:hover {
+    background-color: #aa0e0e;
 }
 
 h1 {

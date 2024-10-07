@@ -15,52 +15,45 @@
     </header>
 
     <?php
-    $cid=$_SESSION['id'];
-$sql= "SELECT * FROM moderator WHERE Moderator_ID='$cid' ";
-$result = $con->query($sql);
+    $cid = $_SESSION['id'];
+    $sql = "SELECT * FROM moderator WHERE Moderator_ID='$cid'";
+    $result = $con->query($sql);
 
-if ($result->num_rows > 0) {
-    // Output data of each row
-
-    while($row = $result->fetch_assoc()) {
-        $Moid=$row['Moderator_ID'];
-        $mname = $row['Moderator_Name'];
-        $email = $row['Email'];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $Moid = $row['Moderator_ID'];
+            $mname = $row['Moderator_Name'];
+            $email = $row['Email'];
+        }
+    } else {
+        echo "0 results";
     }
-} else {
-    echo "0 results";
-}
-$con->close();
-?>
+    $con->close();
+    ?>
     <br><br>
     <h1>Edit Profile</h1>
 
     <div class="profile-container">
         <form id="profileForm" method="post" action="update_modarator_profile.php">
             <div class="profile-picture">
-                 <br><br>
-                
+                <br><br>
             </div>
             <div class="profile-details">
-
-                
                 <label style="display:none" for="Mid">User ID:</label>
-                <input style="display:none" type="text"  name="Mid" value="<?php echo  $Moid; ?>">
+                <input style="display:none" type="text" name="Mid" value="<?php echo $Moid; ?>">
 
                 <label for="firstName">Name:</label>
-                <input type="text" name="moderator_Name" value="<?php echo  $mname; ?>">
-                
+                <input type="text" name="moderator_Name" value="<?php echo $mname; ?>">
+
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" value="<?php echo $email; ?>">
 
-                <button type="submit" name="update"  id="new">Update</button>
-                <button type="submit" name="delete"  id="delete" >Delete</button>
-            
-                
+                <button type="submit" name="update" id="new" class="update">Update</button>
+                <button type="submit" name="delete" id="delete" class="delete">Delete</button>
             </div>
         </form>
     </div>
-    
+
     <br><br>
     <footer>
         <?php require_once('footer.php'); ?>

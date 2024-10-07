@@ -11,21 +11,22 @@
 <body>
      <?php require_once('header_index.php'); ?> 
 
-    <main class="container">
-        <div>
+     <div class="image">
             <div style="position: relative; text-align: center;">
                 <img id="coverimage" src="./image/cover2.jpg" alt="cover" width="100%">
                 
                 <div class="welcome-message">
-    <h1 id="welcome">Welcome to Cook Me</h1>
+    <h1 id="welcome">Welcome<br>to<br>Cook Me</h1>
     <style>
-        .welcome-message {    
+         .welcome-message {    
             position: absolute;
+            line-height: 120px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            font-size: 3vw;
+            font-family: nunito;
+            font-size: 4vw; 
             animation: fadeIn 2s ease-in-out;
         }
         #welcome {
@@ -41,6 +42,7 @@
             </div>
         </div>
 
+    <main class="container">
         <section class="section">
             <h2>Recipes in this Category</h2>
             <div class="grid">

@@ -14,9 +14,6 @@ body {
     padding: 0 15px;
 }
 
-#coverimage{
-    padding: 20px;
-}
 
 h1, h2 {
     text-align: center;
@@ -25,6 +22,10 @@ h1, h2 {
 
 #welcome{
     color: white;
+}
+
+.image {
+    width: 100%;
 }
 
 .cimage {

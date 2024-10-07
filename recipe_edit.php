@@ -27,7 +27,6 @@
 <div class="container">
     <h1>Edit Recipe</h1>
     <form id="recipeForm" action="./recipe_editHandler.php" method="post" enctype="multipart/form-data">
-        <!-- Pass the recipe ID to the handler -->
         <input type="hidden" name="recipe_id" value="<?php echo htmlspecialchars($recipe['Creator_ID']);?>"> 
 
         <label for="title">Title:</label>
@@ -35,7 +34,6 @@
 
         <label for="image">Featured Image:</label>
         <input type="file" id="image" name="image" accept="image/*">
-        <!-- Show current image -->
         <img src="data:image/jpeg;base64,<?php echo base64_encode($recipe['Image']); ?>" alt="Current Recipe Image" style="width: 100px;">
 
         <label for="description">Description:</label>

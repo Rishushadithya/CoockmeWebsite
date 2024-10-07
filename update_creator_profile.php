@@ -1,7 +1,6 @@
 <?php
 session_start();
-$uid=$_SESSION['uid'] ;
-// Database connection
+$uid = $_SESSION['uid'];
 require 'config.php';
 
 if (isset($_POST["update"])) {
@@ -9,7 +8,6 @@ if (isset($_POST["update"])) {
         $image = $_FILES['image']['tmp_name'];
         $imgContent = file_get_contents($image);
     } else {
-        // Fetch current image content from the database if no new image is uploaded
         $result = $con->query("SELECT Profile_Image FROM creator WHERE User_ID='$uid'");
         $row = $result->fetch_assoc();
         $imgContent = $row['Profile_Image'];
@@ -30,37 +28,27 @@ if (isset($_POST["update"])) {
 
     $creator = $con->prepare("UPDATE creator SET Title=?, Bio=?, Years_of_Experience=?, Current_Work=?, Profile_Image=? WHERE User_ID=?");
     $creator->bind_param("sssssi", $title, $bio, $experience, $currentWork, $imgContent, $uid);
- 
+
     if ($user->execute() && $creator->execute()) {
-        echo "<script>alert('Profile updated successfully!')</script>".header("Location: creator_profile.php");
-        
+        echo "<script>alert('Profile updated successfully!')</script>" . header("Location: creator_profile.php");
     } else {
         echo "Error updating record: " . $con->error;
         echo "<script>alert('Profile not updated!')</script>";
         header("Location: creator_profile.php");
     }
-
 }
 
-
 if (isset($_POST["delete"])) {
-        $mid=$_POST['Mid']??'';
-       
-          $sql="DELETE FROM user WHERE User_ID='$uid'";
+    $mid = $_POST['Mid'] ?? '';
+    $sql = "DELETE FROM user WHERE User_ID='$uid'";
 
-            if($con->query($sql))
-            {
-                echo"<script>alert('Successfully deleted')</script>";
-                header("location:index.php");
-                
-            }
-            else
-            {
-                echo"<script>alert('not deleted contact admin')</script>"; 
-            }
-    
+    if ($con->query($sql)) {
+        echo "<script>alert('Successfully deleted')</script>";
+        header("location:index.php");
+    } else {
+        echo "<script>alert('not deleted contact admin')</script>";
+    }
 }
 
 $con->close();
-
 ?>

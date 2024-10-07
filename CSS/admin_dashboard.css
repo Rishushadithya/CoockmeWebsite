@@ -12,8 +12,6 @@ body {
     display: flex;
 }
 
-/* sidebar */
-
 .sidebar {
     width: 20%;
     background-color: #061c58;
@@ -24,10 +22,6 @@ body {
 .sidebar h1 {
     padding: 10px 0px 20px 0px;
 }
-
-/* .dropdown label {
-    padding-bottom: 10px;
-} */
 
 .container h3 {
     color: white;
@@ -44,7 +38,7 @@ body {
     cursor: pointer;
 }
 
-.list ul{
+.list ul {
     background-color: #3498db;
 }
 
@@ -66,7 +60,7 @@ body {
     text-decoration: none;
 }
 
-.create-post{
+.create-post {
     width: 100%;
     padding: 10px;
     margin-top: 20px;
@@ -82,13 +76,10 @@ body {
     background-color: #218838;
 }
 
-/* main content */
-
 #box1 {
-    background-color:darkblue;
+    background-color: darkblue;
     color: white;
 }
-
 
 #box2 {
     background-color: rgb(38, 235, 38);
@@ -106,17 +97,17 @@ body {
 }
 
 #box5 {
-    background-color:rgb(42, 178, 231);
+    background-color: rgb(42, 178, 231);
     color: white;
 }
 
 #box6 {
-    background-color:darkorange;
+    background-color: darkorange;
     color: white;
 }
 
 #box7 {
-    background-color:darkmagenta;
+    background-color: darkmagenta;
     color: white;
 }
 
@@ -133,7 +124,6 @@ body {
     padding: 20px;
     background-color: #f4f4f4;
     margin-bottom: 20px;
-
 }
 
 .box {
@@ -150,8 +140,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* table */
-
 .table-section {
     border-radius: 10px;
     background-color: white;
@@ -161,14 +149,13 @@ body {
 
 table {
     width: 100%;
-    border-collapse:collapse;
+    border-collapse: collapse;
 }
 
-th,td {
+th, td {
     padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
-
 }
 
 th {
@@ -178,7 +165,6 @@ th {
 
 td {
     background-color: white;
-
 }
 
 .table-section a {
