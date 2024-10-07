@@ -43,10 +43,10 @@ body {
     border-radius: 5px;
 }
 #bio{
-    width: 500px;
+    width: 95%;
 }
 
-button {
+.btn {
     width: 100%;
     padding: 10px;
     margin: 10px;
@@ -58,8 +58,25 @@ button {
     font-size: large;
 }
 
-button:hover {
+.btn1 {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+}
+
+
+.btn:hover {
     background-color: #0056b3;
+}
+
+.btn1:hover {
+    background-color: #aa0e0e;
 }
 
 h1 {

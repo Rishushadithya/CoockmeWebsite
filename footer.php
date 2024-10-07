@@ -1,6 +1,3 @@
-<?php
-// Footer.php
-?>
 <footer class="site-footer">
     <div class="footer-content">
         <div class="logo-container">
@@ -18,8 +15,8 @@
                         <li><a href="./category.php#c2">French Recipes</a></li>
                     </ul>
                     <ul>
-                    <li><a href="./category.php#c3">Chinese Recipes</a></li>
-                    <li><a href="./category.php#c4">Japanese Recipes</a></li>
+                        <li><a href="./category.php#c3">Chinese Recipes</a></li>
+                        <li><a href="./category.php#c4">Japanese Recipes</a></li>
                     </ul>
                 </div>
             </div>
@@ -54,6 +51,5 @@
     </div>
 </footer>
 
-
 <link rel="stylesheet" href="./CSS/footer.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"><!--icon link-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">

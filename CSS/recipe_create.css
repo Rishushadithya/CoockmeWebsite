@@ -83,19 +83,7 @@ input, textarea, select, button {
     margin: 20px auto; 
     text-align: center; 
 }
-/*edit btn css part 
-#editBtn { 
 
-    background-color: #5c8fb8;
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 70%;
-    display: block;
-    margin: 20px auto; 
-    text-align: center; 
-}
-*/
 button:hover {
     background-color: #4c53ae;
 }

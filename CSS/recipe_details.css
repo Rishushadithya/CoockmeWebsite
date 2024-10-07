@@ -4,10 +4,10 @@ body {
 
 main {
     width: 80%;
-    margin: 3% auto; /* Center the main container */
+    margin: 3% auto; 
     padding: 0;
     box-sizing: border-box;
-    text-align: center; /* Center text within the main section */
+    text-align: left; 
 }
 
 .container {
@@ -18,9 +18,14 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.recipe-title h1 {
+h1 {
     font-size: 30px;
     margin-bottom: 10px;
+}
+
+#img1 {
+    margin: auto;
+    padding: auto;
 }
 
 .description {
@@ -28,35 +33,23 @@ main {
     font-size: 20px;
 }
 
-.recipe-images {
-    display: flex;
-    justify-content: center; /* Center the images */
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.recipe-images img {
-    width: 100%;
-    max-width: 400px; /* Limit image width */
-}
-
 .ingredients, .Method {
     margin-bottom: 20px;
-    text-align: left; /* Left-align ingredients and method for readability */
+    text-align: left; 
 }
 
 .ingredients ul {
-    margin: 0 auto; /* Center the unordered list */
-    padding: 0; /* Remove default padding */
-    list-style-type: none; /* Remove bullet points */
+    margin: 0 auto; 
+    padding: 0; 
+    list-style-type: none; 
 }
 
 .ingredients li {
-    margin: 10px 0; /* Space between ingredients */
+    margin: 10px 0; 
 }
 
 .Method {
-    margin: 0 auto; /* Center the method section */
+    margin: 0 auto; 
 }
 
 .dif {
@@ -75,4 +68,61 @@ main {
 .dif label {
     color: rgb(255, 191, 0);
     font-size: 40px;
+}
+
+.ingredients1 {
+    width: auto;
+}
+
+.method1 {
+    width: auto;
+    text-align: left;
+}
+
+.ingredients {
+    font-size: larger;
+    margin-top: 15px;
+}
+
+.method {
+    font-size: larger;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.add {
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+}
+
+.download {
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+}
+
+.add:hover {
+    background-color: #aa0e0e;
+}
+
+.download:hover {
+    background-color: #0056b3;
+}
+
+#time{
+    display: flex; 
+    gap: 100px;
 }

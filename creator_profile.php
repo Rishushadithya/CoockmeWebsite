@@ -96,7 +96,7 @@
                 </select>
 
                 <label for="bio">Bio:</label>
-                <textarea id="bio" name="bio"><?php echo $bio; ?></textarea>
+                <textarea id="bio" name="bio" rows="10" cols="40"><?php echo $bio; ?></textarea>
 
                 <label for="experience">Years of Experience:</label>
                 <input type="number" id="experience" name="experience" value="<?php echo $experience; ?>">
@@ -104,7 +104,8 @@
                 <label for="currentWork">Current Work:</label>
                 <input type="text" id="currentWork" name="currentWork" value="<?php echo $work; ?>">
 
-                <button type="submit" name="update">Update</button> <button type="submit" name="delete">Delete</button>
+                <button class="btn" type="submit" name="update">Update</button>
+                <button class="btn1" type="submit" name="delete">Delete</button>
             </div>
         </form>
     </div>

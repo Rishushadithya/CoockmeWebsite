@@ -1,6 +1,4 @@
 <?php
-
-// Check if the user is logged in, otherwise redirect to login
 if (!isset($_SESSION['loggedin'])) {
     echo "<script>
         function redirectToLogin() {
@@ -20,7 +18,6 @@ if (!isset($_SESSION['loggedin'])) {
     <link rel="stylesheet" href="./CSS/header.css">
     
     <title>header</title>
-
 </head>
 <body>
 
@@ -35,25 +32,24 @@ if (!isset($_SESSION['loggedin'])) {
         </div>
         
         <div class="user-menu">
-                <img src="./icon/user.png" alt="User Icon" class="user-icon" onclick="toggleDropdown()">
-                <div class="dropdown">
-                    <a href="login_index.php">Login</a>
-                    <a href="logout.php">Sing Up</a>
-                </div>	
-            </div> 
+            <img src="./icon/user.png" alt="User Icon" class="user-icon" onclick="toggleDropdown()">
+            <div class="dropdown">
+                <a href="login_index.php">Sign In</a>
+                <a href="registation_form.php">Register</a>
+            </div>	
+        </div> 
     </div>
 
     <nav class="nav-bar">
         <a href="#" class="nav-link" onclick="checkLoginStatus()">Home</a>
         <a href="#" class="nav-link" onclick="checkLoginStatus()">Category</a>
         <a href="#" class="nav-link" onclick="checkLoginStatus()">Contact Us</a>
-        <a href="privacy.php" class="nav-link" >Privacy Policy</a>
-        <a href="about_us.php" class="nav-link" >About Us</a>
-        <a href="terms_and_con.php" class="nav-link" >Terms and Condition</a>
+        <a href="privacy.php" class="nav-link">Privacy Policy</a>
+        <a href="about_us.php" class="nav-link">About Us</a>
+        <a href="terms_and_con.php" class="nav-link">Terms and Condition</a>
     </nav>
 
     <script>
-        // Check if the user is logged in, if not, redirect to login page
         function checkLoginStatus() {
             <?php if (!isset($_SESSION['login'])) { ?>
                 redirectToLogin();

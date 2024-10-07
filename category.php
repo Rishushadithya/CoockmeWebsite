@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-        require_once ('header.php'); // Include header of the page
+        require_once('header.php');
     ?>
     <div class="container1">
         <section class="section1" id="c1">
@@ -17,23 +17,18 @@
             <div class="grid1">
                 <?php
                 require_once('config.php');
-                
-
-                // Add Recipe_ID to the query to avoid undefined key error
                 $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'italian'";
                 $result = $con->query($sql);
                 
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         echo '<article class="card">';
-                        // Use Recipe_ID in the href link
                         echo '<a href="recipe_details.php?id='.$row['Recipe_ID'].'">';
                         echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '" alt="Recipe Image">';
                         echo "<h3>" . htmlspecialchars($row["Recipe_Name"]) . "</h3>";
                         echo "<p>" . htmlspecialchars($row["Description"]) . "</p>";
                         echo '</a>';
                         echo '</article>';
-                        // Correctly store Recipe_ID in session
                         $_SESSION['rid'] = $row["Recipe_ID"];
                     }
                 } else {
@@ -48,8 +43,6 @@
             <div class="grid1">
                 <?php
                 require_once('config.php');
-                
-                // Add Recipe_ID to the query
                 $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'french'";
                 $result = $con->query($sql);
                 
@@ -75,11 +68,8 @@
             <h2>Chinese Recipes</h2>
             <div class="grid1">
                 <?php
-                $_SESSION['cp']="chinese"; // Manually setting cuisine
-
+                $_SESSION['cp']="chinese";
                 require_once('config.php');
-                
-                // Add Recipe_ID to the query
                 $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'chinese'";
                 $result = $con->query($sql);
                 
@@ -106,8 +96,6 @@
             <div class="grid1">
                 <?php
                 require_once('config.php');
-                
-                // Add Recipe_ID to the query
                 $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'japanese'";
                 $result = $con->query($sql);
                 
@@ -130,7 +118,7 @@
         </section>
     </div>
     <?php
-        include ('footer.php'); // Include footer of the page
+        include('footer.php');
     ?>
 </body>
 </html>

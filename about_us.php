@@ -11,9 +11,9 @@
     require_once 'header.php';
 ?>  
 <br>
-    <div class="container">
+<div class="container">
     <div class="aboutus-image">
-        <img src="./image/who.jpg" alt="About Us Image" >
+        <img src="./image/who.jpg" alt="About Us Image">
     </div>
     
     <div class="aboutus">
@@ -25,7 +25,7 @@
             You can search for recipes by cuisine, meal type, or ingredients. You can also create an account on our website and save your 
             favorite recipes. We also have a blog section where you can read interesting articles about food and cooking. We hope you enjoy 
             our website and find it useful. Happy cooking!</p>
-            <br> <br>
+        <br><br>
     </div>
    
     <div class="team">
@@ -64,12 +64,12 @@
             <div class="member">
                 <img src="./image/sf2.jpg" alt="Chef 2">
                 <h2>Jane Doe</h2>
-                <p>Backend Diveloper</p>
+                <p>Backend Developer</p>
             </div>
             <div class="member">
                 <img src="./image/sf3.jpg" alt="Chef 3">
                 <h2>James Doe</h2>
-                <p>Modaretor</p>
+                <p>Moderator</p>
             </div>
         </div>
     </div>

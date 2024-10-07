@@ -23,7 +23,7 @@
     border: none;  
 }
 #searchbutton {
-    padding: 10px 20px;
+    padding: 10px 20px 0px 20px;
     border: none;
     cursor: pointer;
     background-color: #b4b3b339;
@@ -34,25 +34,32 @@
     width: 600px;
 }
 
+.user_name{
+    font-size: 20px;
+    padding-left: 10px;
+    margin: auto;
+
+}
+
 .user-menu { 
     position: relative;
     display: flex;
     align-items: center;
-    margin-left: auto; /* Push the user menu to the right */
-    margin-right: 150px; /* Add some space to the right */
+    margin-left: auto; 
+    margin-right: 150px; 
 }
 
 .user-icon {
     width: 60px;
     height: 60px;
-    cursor: pointer; /* Cursor changes to pointer on hover */
+    cursor: pointer; 
 }
 
-/* toggle drop down css */
+
 .dropdown {
     text-align: center;
     width: 180px;
-    display: none; /* Hide dropdown initially */
+    display: none;
     position: absolute;
     top: 40px; /* Position dropdown below user icon */
     right: 0; /* Align dropdown to the right */
@@ -86,7 +93,7 @@
     display: flex;
     justify-content: space-around;
     padding: 15px 0;
-    background: #d5d5d5;
+    background: #3498db;
 }
 
 .nav-bar input {
@@ -100,16 +107,14 @@
 
 .nav-bar a {
     text-decoration: none;
-    color: #000000;
+    color: white;
     font-weight: bold;
     font-size: 20px;
     border: none;
-    background-color: #d5d5d5;
     padding-left: 0;
 }
 
-.nav-bar a:hover {
-    color: #8c5555; /* Change color on hover */
-    text-decoration: underline; /* Underline on hover */
+.nav-link:hover {
+    color: rgb(54, 54, 54);
 }
 

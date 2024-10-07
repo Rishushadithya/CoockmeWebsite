@@ -15,19 +15,16 @@
     <?php
         require_once "config.php";
 
-        // Check if the 'id' parameter is set in the URL
         if (isset($_GET['id'])) {
             $recipe_id = intval($_GET['id']);
-            $_SESSION['recipe_id']=$recipe_id; // Get the Recipe_ID from the URL and convert to an integer
+            $_SESSION['recipe_id'] = $recipe_id;
 
-            // Fetch the recipe details based on Recipe_ID
             $sql = "SELECT * FROM recipe WHERE Recipe_ID = ?";
             $stmt = $con->prepare($sql);
-            $stmt->bind_param("i", $recipe_id); // Bind the Recipe_ID to the query
+            $stmt->bind_param("i", $recipe_id); 
             $stmt->execute();
             $result = $stmt->get_result();
 
-            // Check if the recipe exists
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     $recipe_name = $row['Recipe_Name'];
@@ -47,31 +44,53 @@
         <form id="recipeForm" action="" method="post">
             <h1><?php echo htmlspecialchars($recipe_name); ?></h1>
 
-            <img src="data:image/jpeg;base64,<?php echo base64_encode($image); ?>" alt="Recipe Image">
+            <img id="img1" src="data:image/jpeg;base64,<?php echo base64_encode($image); ?>" alt="Recipe Image" width="400px">
 
             <h2><?php echo htmlspecialchars($description); ?></h2>
 
-            <label class="ingredients">Ingredients:</label>
-            <h3><?php echo htmlspecialchars($ingredients); ?></h3>
+            <br><br><label class="ingredients">Ingredients:<br><br></label>
+            <h3 class="ingredients1" id="ingredients1" style="display:none;"><?php echo htmlspecialchars($ingredients); ?></h3>
+            <h3 class="ingredients1" id="ingredients2"></h3>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    let text = document.getElementById("ingredients1").innerText;
+                    let formattedText = text.split(',').join('<br>');
+                    document.getElementById("ingredients2").innerHTML = formattedText;
+                });
+            </script>
 
-            <label class="method">Method:</label>
-            <h3><?php echo htmlspecialchars($method); ?></h3>
+            <br><br><label class="method">Method:<br><br></label>
+            <h3 class="method1" id="method1" style="display:none;"><?php echo htmlspecialchars($method); ?></h3>
+            <h3 class="method1" id="method2"></h3>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    let text = document.getElementById("method1").innerText;
+                    let formattedText = text.split(';').join('<br><br>');
+                    document.getElementById("method2").innerHTML = formattedText;
+                });
+            </script>
 
+            <h3 class="method1" id="method2"></h3>
+            
+            <br><br>
             <div id="time">
                 <div>
                     <label class="Servings">Servings:</label>
                     <?php echo htmlspecialchars($serves); ?>
                 </div>
+                
                 <div>
                     <label class="Cooking_Time">Cooking Time:</label>
                     <?php echo htmlspecialchars($prepare_time); ?>
                     <span>Min</span>
                 </div>
+                
                 <div>
                     <label class="Preparing_Time">Preparing Time:</label>
                     <?php echo htmlspecialchars($cook_time); ?>
                     <span>Min</span>
                 </div>
+                
                 <div>
                     <label class="Cuisine">Cuisine:</label>
                     <?php echo htmlspecialchars($cuisine); ?>
@@ -93,50 +112,40 @@
             <br>
             <?php
                 if (isset($_POST['add'])) {
-                    // Assuming you have the user's ID stored in session
-
-                    // Check if the recipe is already in the user's favorites
-                    $check_sql = "SELECT * FROM favorite WHERE User_ID = ? AND Recipe_ID = ? ";
+                    $check_sql = "SELECT * FROM favorite WHERE User_ID = ? AND Recipe_ID = ?";
                     $stmt = $con->prepare($check_sql);
                     $stmt->bind_param("ii", $sid, $recipe_id);
                     $stmt->execute();
                     $result = $stmt->get_result();
                     $stmt->close();
 
-                    
                     $is_favorite = ($result->num_rows > 0);
                     $_SESSION['is_favorite'] = $is_favorite;
 
                     if ($result->num_rows > 0) {
-                        // If already in favorites, remove it
-                        $remove_sql = "DELETE FROM favorite WHERE User_ID = ? AND Recipe_ID = ? ";
+                        $remove_sql = "DELETE FROM favorite WHERE User_ID = ? AND Recipe_ID = ?";
                         $stmt = $con->prepare($remove_sql);
                         $stmt->bind_param("ii", $sid, $recipe_id);
                         $stmt->execute();
                         $message = "Recipe removed from favorites.";
                     } else {
-                        // Otherwise, add it to favorites
                         $insert_sql = "INSERT INTO favorite (User_ID, Recipe_ID) VALUES (?, ?)";
                         $stmt = $con->prepare($insert_sql);
-                        $stmt->bind_param("ii",  $sid, $recipe_id);
+                        $stmt->bind_param("ii", $sid, $recipe_id);
                         $stmt->execute();
                         $message = "Recipe added to favorites.";
-
                     }
 
-                    // Display the message
                     echo "<script>alert('$message');</script>";
-                   
                 }
-
             ?> 
             
-            <button type="submit" name="add" id="add">
+            <button type="submit" name="add" id="add" class="add">
                 <?php
                  $is_favorite = $_SESSION['is_favorite'];
-                 echo ($is_favorite ? "Add from Favorites" : "Remove to Favorites"); ?>
+                 echo ($is_favorite ? "Add to Favorites" : "Remove from Favorites"); ?>
             </button>
-            <button type="submit" name="download" id="download">Download</button>
+            <button type="submit" name="download" id="download" class="download">Download</button>
         </form>
     </div>
     <?php
@@ -144,7 +153,6 @@
                 echo "<p>No recipe found.</p>";
             }
 
-            // Close the database connection
             $stmt->close();
             $con->close();
         } else {

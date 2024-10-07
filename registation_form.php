@@ -39,16 +39,16 @@
                 <input type="password" id="confirm-password" name="confirm-password" required>
             </div>
             <div class="inputgroupcheckbox">
-                <input type="checkbox" id="notificationsbutton" name="notifications"><p1 id="notifications">Notifications</p1><br><br>
+                <input type="checkbox" id="notificationsbutton" name="notifications">
+                <p1 id="notifications">Notifications</p1><br><br>
             </div>
             <button type="submit" class="submit-button">Create Account</button>
             <button type="reset" class="reset-button">Reset Details</button>
         </form>
         <div class="form-footer">
-             <p1>Already registered?</p1><a href="login_index.php"> Click here to Login</a>
+            <p1>Already registered?</p1><a href="login_index.php"> Click here to Login</a>
         </div>
     </div>
-
     <script src="js/registerfor.js"></script>
 </body>
 </html>

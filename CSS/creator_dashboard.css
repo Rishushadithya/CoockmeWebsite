@@ -6,13 +6,13 @@
 
 body {
     font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
 }
 
 .container {
     display: flex;
 }
-
-/* sidebar */
 
 .sidebar {
     width: 20%;
@@ -29,13 +29,14 @@ body {
     padding-bottom: 10px;
 }
 
-#no1,#no2 {
+#no1, #no2 {
     padding-bottom: 10px;
 }
+
 #no2 {
-    
     margin-top: 200px;
 }
+
 .container h3 {
     color: white;
     margin-top: 15px;
@@ -51,10 +52,9 @@ body {
     cursor: pointer;
 }
 
-
 .sidebar li {
     margin: 5px;
-    padding: 5px;  
+    padding: 5px;
 }
 
 .sidebar ul, .list ul {
@@ -63,14 +63,14 @@ body {
     border-radius: 5px;
     list-style-type: none;
     font-size: large;
-} 
+}
 
 .sidebar a {
     color: white;
     text-decoration: none;
 }
 
-.create-post{
+.create-post {
     width: 100%;
     padding: 10px;
     margin-top: 20px;
@@ -86,8 +86,6 @@ body {
     background-color: #218838;
 }
 
-/* main content */
-
 .main-content {
     flex: 1;
     padding: 20px;
@@ -101,7 +99,6 @@ body {
     padding: 20px;
     background-color: #f4f4f4;
     margin-bottom: 20px;
-
 }
 
 .box {
@@ -118,7 +115,25 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* table */
+#box1 {
+    background-color: darkblue;
+    color: white;
+}
+
+#box2 {
+    background-color: rgb(38, 235, 38);
+    color: white;
+}
+
+#box3 {
+    background-color: rgb(202, 178, 39);
+    color: white;
+}
+
+#box4 {
+    background-color: red;
+    color: white;
+}
 
 .table-section {
     border-radius: 10px;
@@ -129,14 +144,13 @@ body {
 
 table {
     width: 100%;
-    border-collapse:collapse;
+    border-collapse: collapse;
 }
 
-th,td {
+th, td {
     padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
-
 }
 
 th {
@@ -146,7 +160,6 @@ th {
 
 td {
     background-color: white;
-
 }
 
 .table-section a {

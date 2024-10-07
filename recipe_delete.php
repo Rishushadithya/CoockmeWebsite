@@ -4,7 +4,6 @@ require('config.php');
 session_start();
 $deleteID = $_SESSION['editID'];
 
-
 $sql = "DELETE FROM recipe WHERE Recipe_ID='$deleteID'";
 
 if ($con->query($sql) === TRUE) {
@@ -14,6 +13,6 @@ if ($con->query($sql) === TRUE) {
     echo "Error deleting record: " . $con->error;
 }
 
-$conn->close();
+$con->close();
 
 ?>

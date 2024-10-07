@@ -46,7 +46,7 @@ body {
     width: 500px;
 }
 
-button {
+.update {
     width: 100%;
     padding: 10px;
     margin: 10px;
@@ -58,8 +58,25 @@ button {
     font-size: large;
 }
 
-button:hover {
+.delete {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+}
+
+
+.update:hover {
     background-color: #0056b3;
+}
+
+.delete:hover {
+    background-color: #aa0e0e;
 }
 
 h1 {
