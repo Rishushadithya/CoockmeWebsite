@@ -13,7 +13,7 @@ body {
 h2 {
     text-align:center;
     color:rgb(255, 255, 255);
-    font-size: 60px;
+    font-size: 80px;
     padding-top: 170px;
     padding-bottom: 180px;
 }
@@ -114,7 +114,7 @@ h3 {
 } 
 
 .icon img {
-
+    width: 100px;
     border-radius: 50%;
 
 }
@@ -124,6 +124,10 @@ h3 {
     transform: scale(1.1); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
+}
+
+.s_icon {
+    margin-left: 325px;
 }
 
 h4 {

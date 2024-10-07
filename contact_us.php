@@ -1,7 +1,7 @@
 <!Doctype html>
 <head>
     <link rel="stylesheet" href="CSS/contact_us.css">
-    <title>Login to Cook Me</title>
+    <title>Contact Us</title>
     <style></style>    
 </head>
 
