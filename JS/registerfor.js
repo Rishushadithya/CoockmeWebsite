@@ -10,5 +10,5 @@ document.getElementById('signup-form').addEventListener('submit', function(event
     }
 
     alert('Account created successfully!');
-    // You can add additional code here to handle form submission, like sending data to a server.
+    
 });
