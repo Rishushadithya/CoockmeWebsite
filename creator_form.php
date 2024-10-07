@@ -38,7 +38,7 @@
             <input type="text" id="currentWork" name="currentWork" placeholder="Current work">
             <label for="notifications">
             <input type="checkbox" id="notifications" name="notifications"> Enable Notifications</label>
-            <button type="submit" id="submit" name="submit">Register as a Creator</button>
+            <button type="submit" id="submit" name="submit" class="submit">Register as a Creator</button>
         </form>
         <div class="links">
             <a href="forget_password.php">Forget your password?</a>
