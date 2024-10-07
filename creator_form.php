@@ -41,7 +41,7 @@
             <button type="submit" id="submit" name="submit">Register as a Creator</button>
         </form>
         <div class="links">
-            <a href="#">Forget your password?</a>
+            <a href="forget_password.php">Forget your password?</a>
         </div>
     </div>
     <br><br>

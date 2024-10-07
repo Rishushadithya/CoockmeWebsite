@@ -27,7 +27,7 @@ body {
     border-radius: 5px;
 }
 
-button,#new1 {
+#new1 {
     width: 100%;
     padding: 10px;
     margin: 10px;
@@ -39,11 +39,11 @@ button,#new1 {
     font-size: large;
 }
 
-#new1:hover,button:hover {
+#new1:hover {
     background-color: #0056b3;
 }
 
-button,#new2 {
+#new2 {
     width: 100%;
     padding: 10px;
     margin: 10px;
@@ -55,7 +55,7 @@ button,#new2 {
     font-size: large;
 }
 
-#new2:hover,button:hover {
+#new2:hover{
     background-color: #aa0e0e;
 }
 

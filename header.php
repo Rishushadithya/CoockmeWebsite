@@ -41,7 +41,8 @@ $sname = $_SESSION['name'];
                     echo '<a href="creator_dashboard.php">Dashboard</a>';
                     echo '<a href="creator_profile.php">Profile</a>';
                 } elseif ($stable == 'user') {
-                    echo '<a href="user_profile.php">Profile</a>';
+                    echo '<a href="creator_form.php">Become a Creator</a>';
+                    echo '<a href="user_profile.php">Profile</a>';                   
                 } else {
                     echo '<a href="login_index.php">Login</a>';
                 }
