@@ -19,7 +19,7 @@
             $recipe_id = intval($_GET['id']);
             $_SESSION['recipe_id'] = $recipe_id;
 
-            $sql = "SELECT * FROM recipe WHERE Recipe_ID = ?";
+            $sql = "SELECT * FROM recipe WHERE Recipe_ID = ? AND Status = 'Active'";
             $stmt = $con->prepare($sql);
             $stmt->bind_param("i", $recipe_id); 
             $stmt->execute();

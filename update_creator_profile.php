@@ -42,13 +42,17 @@ if (isset($_POST["update"])) {
 if (isset($_POST["delete"])) {
     $mid = $_POST['Mid'] ?? '';
     $sql = "DELETE FROM user WHERE User_ID='$uid'";
+    $sql2 = "DELETE FROM creator WHERE User_ID='$uid'";
 
     if ($con->query($sql)) {
-        echo "<script>alert('Successfully deleted')</script>";
-        header("location:index.php");
+        if ($con->query($sql2)) {
+            echo "<script>alert('Successfully deleted')</script>";
+            header("location:index.php");
+        }
     } else {
         echo "<script>alert('not deleted contact admin')</script>";
     }
+
 }
 
 $con->close();
