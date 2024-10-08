@@ -48,24 +48,23 @@
     
     <!-- db connect -->
     <?php 
+
     if(isset($_POST['submit']))
     {
-    $c_email = $_POST["email"];
-    $c_message = $_POST["message"];
-    $uid= $_SESSION['id'];
-    
-    $sql="INSERT INTO contact_us VALUES ('' ,'','$c_email','$c_message') ";
-    
-    if( $contact->query($sql))
-    
-        {
-            echo "Insert Successful" ;
-        }
-    else 
-        {
-            echo "Error".$contact->error ;
+        $c_email = $_POST["email"];
+        $c_message = $_POST["message"];
+        $uid = $_SESSION['id'];
+
+        $sql = "INSERT INTO contact_us (User_ID , Email, Message) VALUES ('$uid', '$c_email', '$c_message')";
+
+        if ($contact->query($sql) === TRUE) {
+            echo "Insert Successful";
+        } else {
+            echo "Error: " . $sql . "<br>" . $contact->error;
         }
     }
+
+    $contact->close();
     
       ?>
 </body>
