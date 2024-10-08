@@ -40,6 +40,7 @@
     } else {
       $insert_sql = "INSERT INTO user VALUES ('','$userFirstName','$userLastName','$userEmail','$userCountry','$userMobileNumber','$userConfirmPassword')";
       if($con->query($insert_sql)){
+        
         header("Location: login_index.php");
       } else {
         echo "Error".$con->error;

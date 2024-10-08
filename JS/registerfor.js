@@ -1,14 +1,21 @@
-document.getElementById('signup-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("signup-form");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirm-password");
+    const errorMessage = document.createElement("span");
 
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
+    errorMessage.style.color = "red";
+    confirmPassword.parentNode.appendChild(errorMessage);
 
-    if (password !== confirmPassword) {
-        alert('Passwords do not match!');
-        return;
-    }
+    form.addEventListener("submit", function(event) {
+        
+        errorMessage.innerHTML = "";
 
-    alert('Account created successfully!');
-    
+     
+        if (password.value !== confirmPassword.value) {
+           
+            errorMessage.innerHTML = "Passwords does not match!";
+            event.preventDefault();
+        }
+    });
 });

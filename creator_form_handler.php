@@ -40,6 +40,8 @@ if (isset($_POST["submit"])) {
 
                     if ($stmt->execute()) {
                         echo "<script>alert('Form submitted successfully!');</script>";
+                        header("Location: login_index.php");
+
                     } else {
                         echo "<script>alert('Error! " . $stmt->error . "');</script>";
                     }

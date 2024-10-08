@@ -42,7 +42,7 @@
                 <input type="checkbox" id="notificationsbutton" name="notifications">
                 <p1 id="notifications">Notifications</p1><br><br>
             </div>
-            <button type="submit" class="submit-button">Create Account</button>
+            <button type="submit" class="submit-button" name="registar">Create Account</button>
             <button type="reset" class="reset-button">Reset Details</button>
         </form>
         <div class="form-footer">

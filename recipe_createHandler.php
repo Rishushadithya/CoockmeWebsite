@@ -24,7 +24,7 @@ if (isset($_POST["submitBtn"])) {
         
         if ($stmt->execute()) {
             echo "<script>alert('Recipe added successfully!');</script>";
-            header("Location: creator_profile.php");
+            header("Location: creator_dashboard.php");
         } else {
             echo "<script>alert('Error adding recipe: " . $stmt->error . "');</script>";
         }

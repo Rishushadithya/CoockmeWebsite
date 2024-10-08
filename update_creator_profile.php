@@ -30,7 +30,8 @@ if (isset($_POST["update"])) {
     $creator->bind_param("sssssi", $title, $bio, $experience, $currentWork, $imgContent, $uid);
 
     if ($user->execute() && $creator->execute()) {
-        echo "<script>alert('Profile updated successfully!')</script>" . header("Location: creator_profile.php");
+        echo "<script>alert('Profile updated successfully!')</script>" ;
+        header("Location: creator_profile.php");
     } else {
         echo "Error updating record: " . $con->error;
         echo "<script>alert('Profile not updated!')</script>";
