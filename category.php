@@ -17,7 +17,7 @@
             <div class="grid1">
                 <?php
                 require_once('config.php');
-                $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'italian'";
+                $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'italian' and Status = 'Active'";
                 $result = $con->query($sql);
                 
                 if ($result->num_rows > 0) {
@@ -43,7 +43,7 @@
             <div class="grid1">
                 <?php
                 require_once('config.php');
-                $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'french'";
+                $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'french' and Status = 'Active'";
                 $result = $con->query($sql);
                 
                 if ($result->num_rows > 0) {
@@ -70,7 +70,7 @@
                 <?php
                 $_SESSION['cp']="chinese";
                 require_once('config.php');
-                $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'chinese'";
+                $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'chinese' and Status = 'Active'";
                 $result = $con->query($sql);
                 
                 if ($result->num_rows > 0) {
@@ -96,7 +96,7 @@
             <div class="grid1">
                 <?php
                 require_once('config.php');
-                $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'japanese'";
+                $sql = "SELECT Recipe_ID, Recipe_Name, Image, Description FROM recipe WHERE Cuisine = 'japanese' and Status = 'Active'";
                 $result = $con->query($sql);
                 
                 if ($result->num_rows > 0) {

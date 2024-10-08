@@ -1,7 +1,7 @@
 <?php
 require_once('config.php');
 
-if (isset($_POST['recipe_id'])) {
+if (isset($_POST['submitBtn'])) {
     $recipe_id = $_POST['recipe_id'] ?? '';
     $title = $_POST['title'] ?? '';
     $description = $_POST['description'] ?? '';

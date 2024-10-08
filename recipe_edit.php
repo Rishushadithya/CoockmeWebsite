@@ -10,10 +10,7 @@
 <body>
 
 <?php 
-    session_start();
     require_once('header.php'); 
-    
-    $id = $_SESSION['editID'];
 
     if (isset($_GET['id'])) {
         $id = intval($_GET['id']);
@@ -27,7 +24,7 @@
 <div class="container">
     <h1>Edit Recipe</h1>
     <form id="recipeForm" action="./recipe_editHandler.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="recipe_id" value="<?php echo htmlspecialchars($recipe['Creator_ID']);?>"> 
+        <input type="hidden" name="recipe_id" value="<?php echo htmlspecialchars($recipe['Recipe_ID']);?>"> 
 
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($recipe['Recipe_Name']); ?>" required>
