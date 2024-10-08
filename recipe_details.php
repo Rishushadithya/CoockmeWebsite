@@ -111,6 +111,7 @@
 
             <br>
             <?php
+                $sid = $_SESSION['id'];
                 if (isset($_POST['add'])) {
                     $check_sql = "SELECT * FROM favorite WHERE User_ID = ? AND Recipe_ID = ?";
                     $stmt = $con->prepare($check_sql);
