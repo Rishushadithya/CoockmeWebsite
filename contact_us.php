@@ -6,7 +6,23 @@
 </head>
 
 <body>
-    <?php require_once('header.php'); ?> 
+        
+    <?php require_once('header.php');
+    //past value
+    if(isset($_POST['submit']))
+    {
+        $c_email = $_POST["email"];
+        $c_message = $_POST["message"];
+        $uid = $_SESSION['id'];
+
+        $sql = "INSERT INTO contact_us (User_ID, Email, Message) VALUES ('$uid', '$c_email', '$c_message')";
+//check passed value
+        if ($con->query($sql) === TRUE) {
+            echo "<script>alert('Thank you for contact us we will get back to you soon ')</script>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $con->error;
+        }
+    }?> 
 
     <div class="hero">
         <h2>Contact Us</h2>
@@ -43,29 +59,6 @@
         <h4>+94 777 123 123 | +94 777 123 124</h4>
     </div>
 
-    <?php require_once('footer.php'); ?>  
-
-    
-    <!-- db connect -->
-    <?php 
-
-    if(isset($_POST['submit']))
-    {
-        $c_email = $_POST["email"];
-        $c_message = $_POST["message"];
-        $uid = $_SESSION['id'];
-
-        $sql = "INSERT INTO contact_us (User_ID , Email, Message) VALUES ('$uid', '$c_email', '$c_message')";
-
-        if ($contact->query($sql) === TRUE) {
-            echo "Insert Successful";
-        } else {
-            echo "Error: " . $sql . "<br>" . $contact->error;
-        }
-    }
-
-    $contact->close();
-    
-      ?>
+    <?php require_once('footer.php'); ?>     
 </body>
 </html>
