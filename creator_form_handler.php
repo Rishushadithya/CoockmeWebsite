@@ -1,13 +1,14 @@
 <?php
 
 require 'config.php';
+session_start();
 
 if (isset($_POST["submit"])) {
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $image = $_FILES['image']['tmp_name'];
         $imgContent = file_get_contents($image);
 
-        $userid = 4;
+        $userid = $_SESSION['id'];
         $email = $_POST['email'];
         $pass1 = $_POST['password'];
         $title = $_POST['title'];

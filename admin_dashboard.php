@@ -11,6 +11,7 @@
     <?php require_once('header.php'); ?>
 
     <?php
+// imalka part 
     $all_recipes_query = "SELECT COUNT(*) AS total FROM recipe";
     $active_recipes_query = "SELECT COUNT(*) AS total FROM recipe WHERE Status = 'Active'";
     $pending_recipes_query = "SELECT COUNT(*) AS total FROM recipe WHERE Status = 'Pending'";
@@ -26,6 +27,8 @@
     $pending_recipes = mysqli_fetch_assoc($pending_recipes_result)['total'];
     $rejected_recipes = mysqli_fetch_assoc($rejected_recipes_result)['total'];
 
+
+// all user count box
     $users_query = "SELECT COUNT(*) AS total FROM user";
     $creators_query = "SELECT COUNT(*) AS total FROM creator";
     $moderators_query = "SELECT COUNT(*) AS total FROM moderator";
@@ -75,6 +78,7 @@
             </div>
         </div>
 
+<!-- data summery -->
         <div class="main-content">
             <div class="stats">
                 <div class="box" id="box1">All<br>Recipes<br><?php echo $all_recipes; ?></div>
@@ -144,6 +148,7 @@
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
+        <!-- show user table  -->
                         <?php
                         if ($user_result->num_rows > 0) {
                             while ($row = mysqli_fetch_assoc($user_result)) {
@@ -166,7 +171,7 @@
                         } else {
                             echo "<tr><td colspan='3'>No results found!</td></tr>";
                         }
-
+            //user delete function
                         if (isset($_GET['delete_user'])) {
                             $id = intval($_GET['delete_user']);
                             $sql = "DELETE FROM user WHERE User_ID='$id'";
@@ -179,6 +184,8 @@
                         ?>
                     </table>
                 </div>
+
+<!-- moderator table funtion -->
                 <div id="creator" >
                     <h2>Moderators</h2>
                     <table>
@@ -199,7 +206,7 @@
                         } else {
                             echo "<tr><td colspan='3'>No results found!</td></tr>";
                         }
-
+       //moderator delete function
                         if (isset($_GET['delete_moderator'])) {
                             $id = intval($_GET['delete_moderator']);
                             $sql = "DELETE FROM moderators WHERE Moderator_ID='$id'";
@@ -222,6 +229,8 @@
         <?php require_once('footer.php'); ?>
     </footer>
 
+
+<!-- user type table filter -->
     <script>
         function filterRecipes(status) {
             window.location.href = 'admin_dashboard.php?filter=' + status;

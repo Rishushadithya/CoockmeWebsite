@@ -50,7 +50,7 @@ if (isset($_POST['login'])) {
             exit();
         }
     } else {    
-        echo "<script>alert('Invalid username or password.')</script>";
+        echo "<script>alert('Invalid Email or Password.')</script>";
         echo "<script>window.open('login_index.php','_self')</script>";
         exit();
     }

@@ -8,7 +8,7 @@
 <body>
         
     <?php require_once('header.php');
-    //past value
+    //pass value
     if(isset($_POST['submit']))
     {
         $c_email = $_POST["email"];
@@ -16,6 +16,7 @@
         $uid = $_SESSION['id'];
 
         $sql = "INSERT INTO contact_us (User_ID, Email, Message) VALUES ('$uid', '$c_email', '$c_message')";
+
 //check passed value
         if ($con->query($sql) === TRUE) {
             echo "<script>alert('Thank you for contact us we will get back to you soon ')</script>";
@@ -34,16 +35,16 @@
         </div>
 
         <div class="f_right" id="form_right">
-            <form action="" method="post" >
-                <div class="form-container">
-                    <input name="f_name" type="text" placeholder="First Name" size="50"><br>
-                    <input name="l_name" type="text" placeholder="Last Name" size="50"><br>
-                    <input name="email" type="email" placeholder="Email" size="50" required><br>
-                    <textarea name="message" id="c_textare" placeholder="Type Your Message" size="250" required></textarea><br>
-                    <input type="reset" value="Clear" name="reset">
-                    <input type="submit" value="Submit" name="submit">
-                </div>
-            </form>
+                <form action="" method="post">
+                    <div class="form-container">
+                        <input name="f_name" type="text" placeholder="First Name" size="50"><br>
+                        <input name="l_name" type="text" placeholder="Last Name" size="50"><br>
+                        <input name="email" type="email" placeholder="Email" size="50" required><br>
+                        <textarea name="message" id="c_textare" placeholder="Type Your Message" size="250" required></textarea><br>
+                        <input type="reset" value="Clear" name="reset">
+                        <input type="submit" value="Submit" name="submit">
+                    </div>
+                </form>
         </div>  
     </div>
 

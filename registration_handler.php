@@ -7,6 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/login.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  
   <script type="text/javascript">
     $(document).ready(function() {
     $('#loginForm').on('submit', function(e) {
@@ -17,6 +19,7 @@
     });
     });
   </script>
+  
   <title>Registation Status</title>
 </head>
 <body>
