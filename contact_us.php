@@ -18,7 +18,7 @@
         </div>
 
         <div class="f_right" id="form_right">
-            <form action="db_insert.php" method="post">
+            <form action="" method="post" >
                 <div class="form-container">
                     <input name="f_name" type="text" placeholder="First Name" size="50"><br>
                     <input name="l_name" type="text" placeholder="Last Name" size="50"><br>
@@ -43,6 +43,30 @@
         <h4>+94 777 123 123 | +94 777 123 124</h4>
     </div>
 
-    <?php require_once('footer.php'); ?>     
+    <?php require_once('footer.php'); ?>  
+
+    
+    <!-- db connect -->
+    <?php 
+    if(isset($_POST['submit']))
+    {
+    $c_email = $_POST["email"];
+    $c_message = $_POST["message"];
+    $uid= $_SESSION['id'];
+    
+    $sql="INSERT INTO contact_us VALUES ('' ,'','$c_email','$c_message') ";
+    
+    if( $contact->query($sql))
+    
+        {
+            echo "Insert Successful" ;
+        }
+    else 
+        {
+            echo "Error".$contact->error ;
+        }
+    }
+    
+      ?>
 </body>
 </html>
