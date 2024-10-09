@@ -45,11 +45,11 @@
             <br>
             <div class="stars" name="difficulty">
                 <span id="difficulty">Difficulty:</span>
-                <span class="star" data-value="1">1&#9733;</span>
-                <span class="star" data-value="2">2&#9733;</span>
-                <span class="star" data-value="3">3&#9733;</span>
-                <span class="star" data-value="4">4&#9733;</span>
-                <span class="star" data-value="5">5&#9733;</span>
+                <span class="star" data-value="1">1&#9733; </span>
+                <span class="star" data-value="2"> 2&#9733; </span>
+                <span class="star" data-value="3"> 3&#9733; </span>
+                <span class="star" data-value="4"> 4&#9733; </span>
+                <span class="star" data-value="5"> 5&#9733; </span>
             </div>
             <input type="hidden" id="difficultyInput" name="difficulty" value="">
             <br>

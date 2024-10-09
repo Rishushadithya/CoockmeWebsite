@@ -9,7 +9,19 @@
 </head>
 <body>
     <header>
-        <?php require_once('header.php'); ?>
+        <?php require_once('header.php');
+        
+        if (isset($_GET['delete'])) {
+            $id = intval($_GET['delete']);
+            $sql = "DELETE FROM recipe WHERE Recipe_ID='$id'";
+            if (mysqli_query($con, $sql)) {
+                echo "<script>alert('Product deleted successfully!');</script>";
+            } else {
+                echo "<script>alert('Error deleting product: " . mysqli_error($con) . "');</script>";
+            }
+        }
+        
+        ?>
     </header>
 
     <?php
@@ -97,15 +109,7 @@
                         echo "<tr><td colspan='4'>No results found!</td></tr>";
                     }
 
-                    if (isset($_GET['delete'])) {
-                        $id = intval($_GET['delete']);
-                        $sql = "DELETE FROM recipe WHERE Recipe_ID='$id'";
-                        if (mysqli_query($con, $sql)) {
-                            echo "<script>alert('Product deleted successfully!');</script>";
-                        } else {
-                            echo "<script>alert('Error deleting product: " . mysqli_error($con) . "');</script>";
-                        }
-                    }
+                    
                     ?>
                 </table>
             </div>
